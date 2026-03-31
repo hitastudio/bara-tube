@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bara Animation - Subdivisi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-content">
+            
+            <img src="../../asset/BARA PRODUCTION/TRANSPARAN PUTIH BARA PRODUCTION.png" alt="Logo Bara Creation" class="loading-image-logo">
+            
+            <h1 class="loader-logo">BARA PRODUCTION</h1>
+            
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+            
+            <div class="loading-number">0%</div>
+            
+            <p class="loading-text">Memuat...</p>
+        </div>
+    </div>
+
+    <header>
+        <a href="../../Bara Studio/index.html" class="btn-back">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Utama
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#karya">Karya Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="beranda" class="hero">
+        
+        <div class="hero-bg-animate">
+            <img src="../../asset/BARA PRODUCTION/bg bara production.png" alt="Background Bara Production">
+        </div>
+        
+        <div class="hero-content">
+            <img src="../../asset/BARA PRODUCTION/TRANSPARAN PUTIH BARA PRODUCTION.png" alt="Logo Bara Production" class="hero-logo">
+            <p>Pilih & Klik untuk melihat Portofolio dan Pricelist</p>
+            <div class="hero-services-grid">
+                <a href="#foto-product" class="hero-service-btn">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Foto Product</span>
+                </a>
+                <a href="#foto-model" class="hero-service-btn">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span>Foto Model</span>
+                </a>
+                <a href="#short-movie" class="hero-service-btn">
+                    <i class="fa-solid fa-film"></i>
+                    <span>Short Movie</span>
+                </a>
+                <a href="#series-drama" class="hero-service-btn">
+                    <i class="fa-solid fa-tv"></i>
+                    <span>Series / Drama</span>
+                </a>
+                <a href="#content-creator" class="hero-service-btn">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <span>Content Creator</span>
+                </a>
+                <a href="#editing" class="hero-service-btn">
+                    <i class="fa-solid fa-photo-film"></i>
+                    <span>Jasa Editing Foto & Video</span>
+                </a>
+                <a href="#video-iklan" class="hero-service-btn">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>Video Iklan & Promosi</span>
+                </a>
+                <a href="#foto-dokumentasi" class="hero-service-btn">
+                    <i class="fa-solid fa-camera"></i>
+                    <span>Foto Dokumentasi</span>
+                </a>
+                <a href="#video-dokumentasi" class="hero-service-btn">
+                    <i class="fa-solid fa-video"></i>
+                    <span>Video Dokumentasi</span>
+                </a>
+                <a href="#scriptwriting" class="hero-service-btn">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <span>Scriptwriting</span>
+                </a>
+            </div>
+        </div>
+        
+    </section>
+
+    <div class="gradient-transition"></div>
+
+    <div class="content-wrapper">
+        
+    <section id="Portofolio Pencapaian">
+        <h2 class="section-title">PORTOFOLIO PENCAPAIAN</h2>
+        
+        <div class="dummy-box-container highlight-center">
+            
+            <a href="https://www.tiktok.com/@gudangbalofficial/video/7545045017618828550?is_from_webapp=1&sender_device=pc" target="_blank" class="dummy-box">
+                <img src="../../asset/BARA PRODUCTION/POSTER 1.png" alt="Poster 1" class="box-image">
+                <h3>1 Juta Penonton</h3>
+                <p>Client - GUDANGBAL OFFICIAL (Tiktok).</p>
+            </a>
+            
+            <a href="https://www.tiktok.com/@gudangbalofficial/video/7307559520392236294?is_from_webapp=1&sender_device=pc" target="_blank" class="dummy-box">
+                <img src="../../asset/BARA PRODUCTION/POSTER 2,2.png" alt="Poster 2" class="box-image">
+                <h3>2,2 Juta Penonton</h3>
+                <p>Client - GUDANGBAL OFFICIAL (Tiktok).</p>
+            </a>
+            
+            <a href="https://www.tiktok.com/@gudangbalofficial/video/7300137207346547974?is_from_webapp=1&sender_device=pc" target="_blank" class="dummy-box">
+                <img src="../../asset/BARA PRODUCTION/POSTER 1,8.png" alt="Poster 3" class="box-image">
+                <h3>1,8 Juta Penonton</h3>
+                <p>Client - GUDANGBAL OFFICIAL (Tiktok).</p>
+            </a>
+            
+        </div>
+    </section>
+
+    <section id="foto-product">
+            <h2 class="section-title">FOTO PRODUK</h2>
+            
+            <div class="product-layout-grid">
+                
+                <div class="product-slider-col">
+                    <div class="slider-wrapper">
+                        <button class="slider-btn prev-btn" id="btnPrev">
+                            <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Sebelumnya">
+                        </button>
+
+                        <div class="slider-center-column">
+                            <div class="slider-view">
+                                <div class="slider-track" id="productTrack">
+                                    
+                                    <div class="slider-slide">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO1.png" alt="Foto Produk 1">
+                                    </div>
+                                    <div class="slider-slide">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO2.png" alt="Foto Produk 2">
+                                    </div>
+                                    <div class="slider-slide">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO3.png" alt="Foto Produk 3">
+                                    </div>
+                                    <div class="slider-slide">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO4.png" alt="Foto Produk 4">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="slider-btn next-btn" id="btnNext">
+                            <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Selanjutnya">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-price-col">
+                    <div class="pricelist-card">
+                        <h4><i class="fa-solid fa-tags"></i> PRICE FOTO PRODUK</h4>
+                        
+                        <div class="pricelist-content">
+                            <p><strong>💰 Harga:</strong><br>
+                            1. Rp30.000 – Rp50.000 / foto<br>
+                            2. Paket Hemat: Rp175.000 / 4 foto</p>
+
+                            <p><strong>✨ Bonus Gratis:</strong><br>
+                            <i class="fa-solid fa-check" style="color:var(--accent-yellow)"></i> Desain poster siap pakai<br>
+                            <i class="fa-solid fa-check" style="color:var(--accent-yellow)"></i> Copywriting menarik & persuasif<br>
+                            <i class="fa-solid fa-check" style="color:var(--accent-yellow)"></i> Konsultasi konsep foto</p>
+
+                            <p><strong>🔁 Revisi:</strong><br>
+                            - Maksimal 3x revisi (gratis)<br>
+                            - Tambahan revisi: Rp35.000 / 3x revisi</p>
+
+                            <a href="#" class="btn btn-pesan">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+    
+    <section id="foto-model">
+        <h2 class="section-title">FOTO MODEL</h2>
+        
+        <div class="product-layout-grid">
+            
+            <div class="product-slider-col">
+                <div class="ig-gallery-wrapper" style="padding: 0; margin: 0 auto; max-width: 350px;">
+                    <div class="ig-carousel-container">
+                        <button class="ig-btn ig-prev-btn" id="btnModelPrev" style="left: -60px; z-index: 20;">
+                            <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Sebelumnya">
+                        </button>
+
+                        <div class="ig-carousel-view" style="border-radius: 0;">
+                            <div class="ig-carousel-track" id="modelTrack">
+                                
+                                <div class="ig-slide-group active" style="grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/1.webp" alt="Foto Model 1"></div>
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/2.webp" alt="Foto Model 2"></div>
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/3.webp" alt="Foto Model 3"></div>
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/4.webp" alt="Foto Model 4"></div>
+                                </div>
+
+                                <div class="ig-slide-group" style="grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/5.webp" alt="Foto Model 5"></div>
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/6.webp" alt="Foto Model 6"></div>
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/7.png" alt="Foto Model 7"></div>
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/8.png" alt="Foto Model 8"></div>
+                                </div>
+
+                                <div class="ig-slide-group" style="grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/9.png" alt="Foto Model 5"></div>
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/10.png" alt="Foto Model 6"></div>
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/11.png" alt="Foto Model 7"></div>
+                                    <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/POSTER.png" alt="Foto Model 8"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <button class="ig-btn ig-next-btn" id="btnModelNext" style="right: -60px; z-index: 20;">
+                            <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Selanjutnya">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-price-col">
+                <h4 style="color: var(--accent-yellow); font-size: 1.4rem; margin-bottom: 20px; font-weight: 900; text-transform: uppercase;">
+                    <i class="fa-solid fa-tags"></i> PRICE FOTO MODEL
+                </h4>
+                
+                <div class="model-pricing-grid">
+                    <div class="model-price-box box-full">
+                        <h5>1. Foto Product "Client Model"</h5>
+                        <span class="price">Rp 10.000 – Rp 30.000 <small style="font-size: 0.7rem; color:#aaa;">/ foto</small></span>
+                    </div>
+                    <div class="model-price-box">
+                        <h5>2. Product With Model</h5>
+                        <span class="price">Rp 60K – 150K</span>
+                        <span class="note">/ foto (min 3 foto)</span>
+                    </div>
+                    <div class="model-price-box">
+                        <h5>3. Paket Product With Model</h5>
+                        <span class="price">Rp 200.000</span>
+                        <span class="note">/ 4 foto</span>
+                    </div>
+                    <div class="model-price-box">
+                        <h5>4. Outdoor "Client Model"</h5>
+                        <span class="price">Rp 200.000++</span>
+                        <span class="note">*Menyesuaikan waktu, tempat & total</span>
+                    </div>
+                    <div class="model-price-box">
+                        <h5>5. Outdoor With Model</h5>
+                        <span class="price">Rp 800.000++</span>
+                        <span class="note">*Menyesuaikan waktu, tempat & total</span>
+                    </div>
+                </div>
+
+                <div class="model-global-info">
+                    <p style="margin-bottom: 10px;"><strong>✨ Fasilitas:</strong> Gratis Editing, Gratis Konsultasi, Max revisi 2x/foto.</p>
+                    <p><strong>➕ Tambahan:</strong><br>
+                    - Revisi 3x: +Rp 30.000 / foto<br>
+                    - Editing poster: +Rp 10.000 – Rp 20.000</p>
+                </div>
+
+                <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan" style="margin-top: 20px;">Pesan Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="series-drama">
+        <h2 class="section-title">SERIES / DRAMA</h2>
+            
+            <div class="product-layout-grid">
+                
+                <div class="product-slider-col">
+                    <div class="slider-wrapper">
+                        <button class="slider-btn prev-btn" id="btnSeriesPrev">
+                            <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Sebelumnya">
+                        </button>
+
+                        <div class="slider-center-column">
+                            <div class="slider-view">
+                                
+                                <div class="slider-track series-track" data-episode="1">
+                                    <div class="slider-slide" data-title="KEMELUT RINDU (ROMANCE)">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO1.png" alt="Poster Series 1">
+                                    </div>
+                                    <div class="slider-slide" data-title="CINTA DI KANTOR (DRAMA)">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO2.png" alt="Poster Series 2">
+                                    </div>
+                                    <div class="slider-slide" data-title="BAYANGAN MASA LALU (THRILLER)">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO3.png" alt="Poster Series 3">
+                                    </div>
+                                </div>
+
+                                <div class="slider-track series-track" data-episode="2" style="display: none;">
+                                    <div class="slider-slide" data-title="MISTERI GUDANG BAL (HORROR)">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO4.png" alt="Poster Series 4">
+                                    </div>
+                                    <div class="slider-slide" data-title="KEMBALI PADAMU (ROMANCE)">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO1.png" alt="Poster Series 5">
+                                    </div>
+                                </div>
+
+                                <div class="slider-track series-track" data-episode="3" style="display: none;">
+                                    <div class="slider-slide" data-title="AKHIR SEBUAH CERITA (DRAMA)">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO2.png" alt="Poster Series 6">
+                                    </div>
+                                    <div class="slider-slide" data-title="AWAL YANG BARU (ROMANCE)">
+                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO3.png" alt="Poster Series 7">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <button class="slider-btn next-btn" id="btnSeriesNext">
+                            <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Selanjutnya">
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-price-col split-box-layout">
+                    
+                    <div class="pricelist-card">
+                        <h4><i class="fa-solid fa-clapperboard"></i> INFO SERIES</h4>
+                        <div class="pricelist-content">
+                            <h5 id="seriesTitleDisplay" style="color: var(--accent-yellow); font-size: 1.2rem; margin-bottom: 15px; font-weight: 900; text-transform: uppercase;">JUDUL SERIES</h5>
+                            
+                            <p style="margin-bottom: 8px; font-size: 0.85rem;"><strong>📺 Pilih Episode:</strong></p>
+                            <div class="episode-selector">
+                                <button class="ep-btn active" data-ep="1">Episode 1</button>
+                                <button class="ep-btn" data-ep="2">Episode 2</button>
+                                <button class="ep-btn" data-ep="3">Episode 3</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pricelist-card">
+                        <div class="pricelist-content">
+                            <p><strong>💰 Estimasi Produksi:</strong><br>
+                            Mulai dari Rp 5.000.000 / Episode<br>
+                            <small style="color: #aaa;">*Durasi 10-15 Menit</small></p>
+
+                            <p style="margin-top: 15px;"><strong>✨ Fasilitas Lengkap:</strong><br>
+                            <i class="fa-solid fa-check" style="color:var(--accent-yellow)"></i> Script & Storyboard<br>
+                            <i class="fa-solid fa-check" style="color:var(--accent-yellow)"></i> Sutradara, Kameramen, Talent<br>
+                            <i class="fa-solid fa-check" style="color:var(--accent-yellow)"></i> Editing Cinematic & Color Grading</p>
+
+                            <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan" style="margin-top: 15px;">Konsultasi Pembuatan</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+    </section>
+    
+    <section id="short-movie" class="short-movie-section">
+        <div class="section-container">
+            
+            <h2 class="section-title">BARA MOVIE: JEMPOL MENJANGKAU DUNIA</h2>
+            
+            <div class="short-movie-layout">
+                
+                <div class="poster-column">
+                    <div class="poster-wrapper">
+                        <img src="../../asset/BARA PRODUCTION/POSTER.png" alt="Poster Film Pendek" class="poster-image">
+                    </div>
+                    <div class="movie-info-box">
+                        <h3 class="movie-title">MENJADI SISWA?</h3>
+                        <p class="movie-desc-short">Sebuah film pendek yang mengisahkan perjuangan seorang siswa dalam menghadapi dilema antara mengejar hobi yang ia cintai dan menyelesaikan tugas-tugas yang semakin menumpuk.</p>
+                    </div>
+                </div>
+                
+                <div class="content-column">
+                    
+                    <div class="video-player-wrapper">
+                        <div id="youtube-player" class="youtube-iframe-player"></div>
+
+                        <a href="https://youtu.be/6OKbHpT1HII" target="_blank" class="video-click-area" style="z-index: 10;">
+                            <div class="play-overlay">
+                                <i class="fa-brands fa-youtube"></i>
+                                <span>Tonton di YouTube</span>
+                            </div>
+                        </a>
+                        
+                        <button class="movie-mute-btn" id="movieMuteBtn" style="z-index: 20;">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="bottom-row">
+                        <div class="movie-info-box-large">
+                            <h4 class="movie-title-large">DETAIL FILM</h4>
+                            <p class="movie-desc-long">Jempol Menjangkau Dunia mengisahkan dampak tak terduga dari satu jempol. Diproduksi oleh tim Bara Production dengan kualitas sinematik terbaik.</p>
+                        </div>
+                        
+                        <div class="price-list-box">
+                            <div class="price-list-header">
+                                <i class="fas fa-ticket-alt gold-icon"></i>
+                                <h4>PRICE LIST</h4>
+                            </div>
+                            <ul class="price-list">
+                                <li>
+                                    <i class="fas fa-star gold-icon"></i>
+                                    Tonton Saja (Standard): <span class="price-item">Rp 0</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-video-slash gold-icon"></i>
+                                    Akses Eksklusif & BTS: <span class="price-item">Rp 25.000</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope-open-text gold-icon"></i>
+                                    Digital Sign & Q&A (Collector's): <span class="price-item">Rp 50.000</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="content-creator">
+            <h2 class="section-title">CONTENT CREATOR</h2>
+            <p class="cc-slide-instruction">
+                <strong>Slide untuk melihat portofolio konten</strong> 
+            </p>  
+            <div class="cc-carousel-container">
+                <button class="slider-btn prev-btn" id="btnCcPrev">
+                    <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Sebelumnya">
+                </button>
+
+                <div class="cc-carousel-center">
+                    <div class="cc-carousel-track" id="ccTrack">
+                        
+                        <div class="cc-carousel-slide" data-caption="GUDANG BAL OFFICIAL - Tiktok & Instagram">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+
+                                    <img src="../../asset/Logo perusahaan/GUDANG BAL OFFICIAL.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://vt.tiktok.com/ZSHed2vag/" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 1.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>914.5K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>1442</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>52K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>153.9K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+                        
+                        <div class="cc-carousel-slide" data-caption="GUDANG BAL OFFICIAL - Tiktok & Instagram">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+                                    <img src="../../asset/Logo perusahaan/GUDANG BAL OFFICIAL.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://vt.tiktok.com/ZSHeeKhs5/" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 2.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>1.2M</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>3120</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>89K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>201K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="cc-carousel-slide" data-caption="GUDANG BAL OFFICIAL - Tiktok & Instagram">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+
+                                    <img src="../../asset/Logo perusahaan/GUDANG BAL OFFICIAL.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://vt.tiktok.com/ZSHedhc2n/" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 3.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>542K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>890</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>12K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>45K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="cc-carousel-slide" data-caption="GUDANG BAL OFFICIAL - Tiktok & Instagram">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+
+                                    <img src="../../asset/Logo perusahaan/GUDANG BAL OFFICIAL.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://vt.tiktok.com/ZSHeeT12V/" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 4.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>789K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>1205</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>34K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>98K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="cc-carousel-slide" data-caption="BAHAGIA FITNESS CENTER - Instagram">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+
+                                    <img src="../../asset/Logo perusahaan/BAHAGIA FITNESS CENRE.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://www.instagram.com/reel/DGnoagXSMNs/?igsh=dDh2em1wcHdmNXA0" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 5.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>450K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>540</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>8.5K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>12K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="cc-carousel-slide" data-caption="GUDANG BAL 7 - Tiktok & Instagram">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+
+                                    <img src="../../asset/Logo perusahaan/GUDANG BAL 7.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://vt.tiktok.com/ZSHedLGNk/" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 6.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>2.1M</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>4500</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>112K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>350K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="cc-carousel-slide" data-caption="GUDANG BAL 7 - Tiktok & Instagram">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+
+                                    <img src="../../asset/Logo perusahaan/GUDANG BAL 7.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://vt.tiktok.com/ZSHedUfua/" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 7.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>678K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>980</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>21K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>67K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="cc-carousel-slide" data-caption="GUDANG BAL 7 - Tiktok & Instagram">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+                                    <img src="../../asset/Logo perusahaan/GUDANG BAL 7.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://vt.tiktok.com/ZSHedmjPQ/" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 8.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>345K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>430</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>9K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>23K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="cc-carousel-slide" data-caption="BALPEDIA - Tiktok">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+
+                                    <img src="../../asset/Logo perusahaan/BALPEDIA.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://vt.tiktok.com/ZSHedwYeF/" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 9.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>890K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>1340</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>45K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>110K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="cc-carousel-slide" data-caption="BALPEDIA - Tiktok">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+
+                                    <img src="../../asset/Logo perusahaan/BALPEDIA.png" class="video-client-logo" alt="Logo Client">
+                                    <a href="https://vt.tiktok.com/ZSHeR1yyN/" target="_blank" class="video-click-area">
+                                        <video src="../../asset/BARA PRODUCTION/video conten creator/Vidio 10.mp4" autoplay loop muted playsinline></video>
+                                    </a>
+                                    <div class="engagement-stats">
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-heart"></i></div><span>1.5M</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-comment-dots"></i></div><span>2800</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-bookmark"></i></div><span>76K</span></div>
+                                        <div class="stat-item"><div class="icon-circle"><i class="fa-solid fa-share"></i></div><span>180K</span></div>
+                                    </div>
+                                    <button class="mute-btn"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="slider-btn next-btn" id="btnCcNext">
+                    <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Selanjutnya">
+                </button>
+            </div>
+
+            <p id="videoCaptionDisplay" class="cc-dynamic-caption">GUDANG BAL OFFICIAL - KATALOG 1</p>
+
+            <div class="ig-gallery-wrapper">
+                <h3 class="ig-gallery-title"><i class="fa-brands fa-instagram"></i> PORTOFOLIO FEED INSTAGRAM</h3>
+                
+                <div class="ig-carousel-container">
+                    <button class="ig-btn ig-prev-btn" id="btnIgPrev">
+                        <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Sebelumnya">
+                    </button>
+
+                    <div class="ig-carousel-view">
+                        <div class="ig-carousel-track" id="igTrack">
+                            
+                            <div class="ig-slide-group active">
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/1.png" alt="IG 1"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/2.png" alt="IG 2"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/3.png" alt="IG 3"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/4.png" alt="IG 4"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/5.png" alt="IG 5"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/6.jpg.jpeg" alt="IG 6"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/7.png" alt="IG 7"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/8.png" alt="IG 8"></div>
+                            </div>
+
+                            <div class="ig-slide-group">
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/9.png" alt="IG 9"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/10.png" alt="IG 10"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/11.png" alt="IG 11"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/P.png" alt="IG 12"></div>
+                                </div>
+
+                        </div>
+                    </div>
+
+                    <button class="ig-btn ig-next-btn" id="btnIgNext">
+                        <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Selanjutnya">
+                    </button>
+                </div>
+            </div>
+            
+            <h2 class="section-title">PRICE LIST CONTENT CREATOR</h2>
+            
+            <div class="cc-horizontal-row">
+                
+                <div class="cc-box-slim">
+                    <div class="cc-top-badge">Basic</div>
+                    <h4>🖼️ BARA FRAMING</h4>
+                    <div class="cc-pricing">
+                        <span class="old-pr">1.1 Jt</span>
+                        <span class="new-pr">900 Rp</span><small>/bln</small>
+                    </div>
+                    <div class="cc-details-area">
+                        <p class="cc-short-desc">Paket dasar untuk brand yang ingin aktif dengan konten foto berkualitas di media sosial.</p>
+                        <ul class="cc-core-specs">
+                            <li><i class="fa-solid fa-image"></i> <b>25</b> Konten Foto Feed</li>
+                            <li><i class="fa-solid fa-layer-group"></i> <b>10</b> Slide Carousel</li>
+                            <li><i class="fa-solid fa-paper-plane"></i> Posting 2x Sehari</li>
+                        </ul>
+                        <div class="cc-divider-line"></div>
+                        <p class="cc-fac-title">Fasilitas:</p>
+                        <ul class="cc-facilities-icons">
+                            <li class="active"><i class="fa-solid fa-check"></i> Konsep, ide, copywriting, dan desain.</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> alat shooting (Kamera DSLR Canon iPhone 11 – iPhone 13 Pro)</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Konten Story (foto)</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> admin posting</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Talent</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Social Media Management</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Konten story (video)</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Menyesuaikan arahan client</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Standby on site</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="cc-btn-choose">Pilih Paket</a>
+                </div>
+
+                <div class="cc-box-slim">
+                    <div class="cc-top-badge">Medium</div>
+                    <h4>📱 BARA SHORTPLAY</h4>
+                    <div class="cc-pricing">
+                        <span class="old-pr">3.5 Jt</span>
+                        <span class="new-pr">2.5 Jt</span><small>/bln</small>
+                    </div>
+                    <div class="cc-details-area">
+                        <p class="cc-short-desc">Paket video pendek untuk meningkatkan engagement dan jangkauan di media sosial.</p>
+                        <ul class="cc-core-specs">
+                            <li><i class="fa-solid fa-video"></i> <b>15</b> Konten Video</li>
+                            <li><i class="fa-solid fa-clock"></i> <b>1</b> Menit Max/Video</li>
+                            <li><i class="fa-solid fa-paper-plane"></i> Posting 2x Sehari</li>
+                        </ul>
+                        <div class="cc-divider-line"></div>
+                        <p class="cc-fac-title">Fasilitas:</p>
+                        <ul class="cc-facilities-icons">
+                            <li class="active"><i class="fa-solid fa-check"></i> Konsep, ide, copywriting, dan desain.</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> alat shooting (Kamera DSLR Canon iPhone 11 – iPhone 13 Pro)</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Konten Story (foto)</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> admin posting</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Talent</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Social Media Management</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Konten story (video)</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Menyesuaikan arahan client</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Standby on site</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="cc-btn-choose">Pilih Paket</a>
+                </div>
+
+                <div class="cc-box-slim featured">
+                    <div class="cc-top-badge gold">Best Value</div>
+                    <h4>💻 BARA PLAYFRAME</h4>
+                    <div class="cc-pricing">
+                        <span class="old-pr">5.0 Jt</span>
+                        <span class="new-pr">3.6 Jt</span><small>/bln</small>
+                    </div>
+                    <div class="cc-details-area">
+                        <p class="cc-short-desc">Paket kombinasi foto dan video untuk strategi konten yang lebih lengkap.</p>
+                        <ul class="cc-core-specs">
+                            <li><i class="fa-solid fa-clapperboard"></i> <b>25</b> Short Video (1m)</li>
+                            <li><i class="fa-solid fa-images"></i> <b>15</b> Foto Carousel (10)</li>
+                            <li><i class="fa-solid fa-paper-plane"></i> Posting 2x Sehari</li>
+                        </ul>
+                        <div class="cc-divider-line"></div>
+                        <p class="cc-fac-title">Fasilitas:</p>
+                        <ul class="cc-facilities-icons">
+                            <li class="active"><i class="fa-solid fa-check"></i> Konsep, ide, copywriting, dan desain.</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> alat shooting (Kamera DSLR Canon iPhone 11 – iPhone 13 Pro)</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Konten Story (foto)</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> admin posting</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Talent</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Social Media Management</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Konten story (video)</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Menyesuaikan arahan client</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Standby on site</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="cc-btn-choose pulse">Terlaris</a>
+                </div>
+
+                <div class="cc-box-slim">
+                    <div class="cc-top-badge">Premium</div>
+                    <h4>💾 LONG PLAYFRAME</h4>
+                    <div class="cc-pricing">
+                        <span class="old-pr">9.0 Jt</span>
+                        <span class="new-pr">7.0 Jt</span><small>/bln</small>
+                    </div>
+                    <div class="cc-details-area">
+                        <p class="cc-short-desc">Paket lengkap untuk brand yang ingin scale up konten dan membangun branding kuat di sosial media & YouTube.</p>
+                        <ul class="cc-core-specs">
+                            <li><i class="fa-brands fa-youtube"></i> <b>6</b> Video YT (15m)</li>
+                            <li><i class="fa-solid fa-bolt"></i> <b>25</b> Short Video (1m)</li>
+                            <li><i class="fa-solid fa-photo-film"></i> <b>25</b> Carousel (10)</li>
+                        </ul>
+                        <div class="cc-divider-line"></div>
+                        <p class="cc-fac-title">Fasilitas:</p>
+                        <ul class="cc-facilities-icons">
+                            <li class="active"><i class="fa-solid fa-check"></i> Konsep, ide, copywriting, dan desain.</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> alat shooting (Kamera DSLR Canon iPhone 11 – iPhone 13 Pro)</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Konten Story (foto)</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> admin posting</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Talent</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Social Media Management</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Konten story (video)</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Menyesuaikan arahan client</li>
+                            <li class="active"><i class="fa-solid fa-check"></i> Standby on site</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="cc-btn-choose">Pilih Paket</a>
+                </div>
+
+                <div class="cc-box-slim nego">
+                    <div class="cc-top-badge white">Custom</div>
+                    <h4>🧾 BARA PLANNING</h4>
+                    <div class="cc-pricing">
+                        <span class="new-pr" style="font-size: 1.4rem;">NEGOSIASI</span>
+                    </div>
+                    <div class="cc-details-area">
+                        <p class="cc-short-desc">Paket ini cocok untuk brand yang ingin menyesuaikan banyak atau sedikitnya konten, target & budget content.</p>
+                        <ul class="cc-core-specs">
+                            <li><i class="fa-brands fa-youtube"></i>NEGOSIASI konten video</li>
+                            <li><i class="fa-solid fa-bolt"></i>NEGOSIASI konten feed</li>
+                            <li><i class="fa-solid fa-clock"></i>NEGOSIASI Timeline & Target</li>
+                        </ul>
+                        <div class="cc-divider-line"></div>
+                        <p class="cc-fac-title">Fasilitas:</p>
+                    
+                        <ul class="cc-facilities-icons">
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Konsep, ide, copywriting, dan desain.</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> alat shooting (Kamera DSLR Canon iPhone 11 – iPhone 13 Pro)</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Konten Story (foto)</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> admin posting</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Talent</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Social Media Management</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Konten story (video)</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Menyesuaikan arahan client</li>
+                            <li class="locked"><i class="fa-solid fa-lock"></i> Standby on site</li>
+                        </ul>
+                    </div>
+                    <a href="https://wa.me/6282281693581" target="_blank" class="cc-btn-choose outline">Nego Chat</a>
+                </div>
+
+            </div>
+
+            <div class="cc-carousel-container" style="margin-top: 50px;">
+                </div>
+    </section>
+
+    <section id="jasa-editing">
+        <h2 class="section-title">JASA EDITING FOTO & VIDEO</h2>
+        
+        <div class="editing-services-grid">
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/POSTER 1.png" alt="Portofolio 1">
+                </div>
+                <div class="card-text-box">
+                    <h3>VIDEO EDITING - MEDIA SOSIAL</h3>
+                    <p>Editing cinematic untuk TikTok, Instagram Reels, YouTube Shorts dengan gaya Bara Production.</p>
+                </div>
+            </div>
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/POSTER 2,2.png" alt="Portofolio 2">
+                </div>
+                <div class="card-text-box">
+                    <h3>YT VIDEO & SERIES</h3>
+                    <p>Poles penuh, color grading cinematic untuk video YouTube, Series/Drama, dan Dokumentasi.</p>
+                </div>
+            </div>
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/POSTER 1,8.png" alt="Portofolio 3">
+                </div>
+                <div class="card-text-box">
+                    <h3>VIDEO IKLAN & PROMOSI</h3>
+                    <p>Buat iklanmu lebih persuasif dengan editing yang dinamis dan color grading yang tepat.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="packages-group-wrapper">
+            <h3 class="package-group-title">PAKET EDITING</h3>
+            
+            <div class="editing-packages-grid">
+                <div class="editing-card">
+                    <div class="card-image-box">
+                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO1.png" alt="Paket 1">
+                    </div>
+                    <div class="card-text-box">
+                        <h3>BASIC</h3>
+                        <p>Poles dasar, pengerjaan cepat. Maksimal 3 revisi (gratis).</p>
+                        <a href="#" class="btn btn-small">Cek Harga</a>
+                    </div>
+                </div>
+                
+                <div class="editing-card">
+                    <div class="card-image-box">
+                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO2.png" alt="Paket 2">
+                    </div>
+                    <div class="card-text-box">
+                        <h3>MEDIUM</h3>
+                        <p>Poles hemat, cinematic. Maksimal 5 revisi. Bonus poster & copywriting.</p>
+                        <a href="#" class="btn btn-small">Ambil Paket</a>
+                    </div>
+                </div>
+                
+                <div class="editing-card">
+                    <div class="card-image-box">
+                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO3.png" alt="Paket 3">
+                    </div>
+                    <div class="card-text-box">
+                        <h3>PREMIUM</h3>
+                        <p>Cinematic, pengerjaan prioritas. Maksimal 7 revisi. Bonus scriptwriting.</p>
+                        <a href="#" class="btn btn-small">Beli Paket</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <section id="layanan">
+            <h2 class="section-title">Layanan Animasi</h2>
+            <div class="dummy-box-container">
+                <div class="dummy-box">
+                    <h3>2D Animation</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div class="dummy-box">
+                    <h3>3D Modeling</h3>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+                <div class="dummy-box">
+                    <h3>Motion Graphics</h3>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+    </section>
+
+    <section id="karya">
+            <h2 class="section-title">Galeri Karya</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Tulisan random untuk deskripsi galeri karya animasi Bara Studios.</p>
+            
+            <div class="dummy-gallery">
+                <div class="gallery-item">Gambar Random 1</div>
+                <div class="gallery-item">Gambar Random 2</div>
+                <div class="gallery-item">Gambar Random 3</div>
+                <div class="gallery-item">Gambar Random 4</div>
+            </div>
+    </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Bara Animation. Subdivisi dari Bara Studios.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
