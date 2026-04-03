@@ -26,14 +26,21 @@
     </div>
 
     <header>
-        <a href="../../Bara Studio/index.html" class="btn-back">
+        <a href="../../index.html" class="btn-back">
             <i class="fa-solid fa-arrow-left"></i> Kembali ke Utama
         </a>
-        <nav>
+        
+        <button class="mobile-menu-btn" id="hamburger-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <nav id="main-nav">
             <ul>
                 <li><a href="#beranda">Beranda</a></li>
-                <li><a href="#layanan">Layanan</a></li>
-                <li><a href="#karya">Karya Kami</a></li>
+                <li><a href="#Portofolio-Pencapaian">Pencapaian</a></li>
+                <li><a href="#kontak">Kontak</a></li>
             </ul>
         </nav>
     </header>
@@ -68,7 +75,7 @@
                     <i class="fa-solid fa-mobile-screen"></i>
                     <span>Content Creator</span>
                 </a>
-                <a href="#editing" class="hero-service-btn">
+                <a href="#jasa-editing" class="hero-service-btn">
                     <i class="fa-solid fa-photo-film"></i>
                     <span>Jasa Editing Foto & Video</span>
                 </a>
@@ -97,7 +104,7 @@
 
     <div class="content-wrapper">
         
-    <section id="Portofolio Pencapaian">
+    <section id="Portofolio-Pencapaian">
         <h2 class="section-title">PORTOFOLIO PENCAPAIAN</h2>
         
         <div class="dummy-box-container highlight-center">
@@ -277,6 +284,132 @@
         </div>
     </section>
 
+    <section id="short-movie" class="short-movie-section">
+        <div class="section-container">
+            
+            <h2 class="section-title">SHORT MOVIE</h2>
+            
+            <div class="short-movie-layout">
+                <div class="poster-column">
+                    <div class="poster-wrapper">
+                        <img src="../../asset/BARA PRODUCTION/POSTER.png" alt="Poster Film Pendek" class="poster-image">
+                    </div>
+                    <div class="movie-info-box">
+                        <h3 class="movie-title">MENJADI SISWA?</h3>
+                        <p class="movie-desc-short">Sebuah film pendek yang mengisahkan perjuangan seorang siswa dalam menghadapi dilema antara mengejar hobi yang ia cintai dan menyelesaikan tugas-tugas yang semakin menumpuk.</p>
+                    </div>
+                </div>
+                
+                <div class="content-column">
+                    <div class="video-player-wrapper">
+                        <div id="youtube-player" class="youtube-iframe-player"></div>
+                        <a href="https://youtu.be/6OKbHpT1HII" target="_blank" class="video-click-area" style="z-index: 10;"></a>
+                        
+                        <button class="movie-mute-btn" id="movieMuteBtn" style="z-index: 20;">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sm-pricing-section">
+                <div class="short-movie-pricing-row">
+                    
+                    <div class="sm-price-card">
+                        <div class="sm-card-header">
+                            <h4>Paket Level Awal</h4>
+                            <div class="sm-price">2,5<span>Jt</span></div>
+                            <p class="sm-duration">/ 1-3 Menit</p>
+                        </div>
+                        <ul class="sm-features">
+                            <li><i class="fa-solid fa-check"></i> Tim 1 - 2 orang</li>
+                            <li><i class="fa-solid fa-users"></i> Actor 1 - 2 orang</li>
+                            <li><i class="fa-solid fa-pen-nib"></i> Scriptwriting sederhana</li>
+                            <li><i class="fa-solid fa-scissors"></i> Editing Sederhana</li>
+                            <li><i class="fa-solid fa-video"></i> 
+                                <div class="sm-list-text">
+                                    Alat shooting:
+                                    <ol class="sm-sub-list">
+                                        <li>Hp iPhone 13</li>
+                                        <li>Microphone Wireless</li>
+                                    </ol>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sm-price-card highlight">
+                        <div class="pkg-badge">POPULER</div>
+                        <div class="sm-card-header">
+                            <h4>Paket Menengah</h4>
+                            <div class="sm-price">4<span>Jt</span></div>
+                            <p class="sm-duration">/ 2-5 Menit</p>
+                        </div>
+                        <ul class="sm-features">
+                            <li><i class="fa-solid fa-check"></i> Tim 2 - 4 orang</li>
+                            <li><i class="fa-solid fa-users"></i> Actor 2 - 4 orang</li>
+                            <li><i class="fa-solid fa-pen-nib"></i> Scriptwriting + konsep</li>
+                            <li><i class="fa-solid fa-scissors"></i> Editing middle</li>
+                            <li><i class="fa-solid fa-video"></i> 
+                                <div class="sm-list-text">
+                                    Alat shooting:
+                                    <ol class="sm-sub-list">
+                                        <li>Kamera DSLR</li>
+                                        <li>Lensa Kit</li>
+                                        <li>Microphone Wireless</li>
+                                        <li>Lighting</li>
+                                        <li>Kostum</li>
+                                    </ol>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="sm-price-card highlight-premium">
+                        <div class="pkg-badge" style="background: linear-gradient(to bottom, #000, #333);">PREMIUM</div>
+                        <div class="sm-card-header">
+                            <h4>Paket Level Oke</h4>
+                            <div class="sm-price">8<span>Jt</span></div>
+                            <p class="sm-duration">/ 3-10 Menit</p>
+                        </div>
+                        <ul class="sm-features">
+                            <li><i class="fa-solid fa-check"></i> Tim 3 - 5 orang</li>
+                            <li><i class="fa-solid fa-users"></i> Actor Max 7 orang</li>
+                            <li><i class="fa-solid fa-book-open"></i> <div class="sm-list-text">Scriptwriting + konsep + ide + pengembangan cerita</div></li>
+                            <li><i class="fa-solid fa-wand-magic-sparkles"></i> <div class="sm-list-text">Editing keren dengan efek visual 2D</div></li>
+                            <li><i class="fa-solid fa-video"></i> 
+                                <div class="sm-list-text">
+                                    Alat shooting:
+                                    <ol class="sm-sub-list">
+                                        <li>Hp Iphone 13</li>
+                                        <li>Kamera DSLR</li>
+                                        <li>Lensa Kit</li>
+                                        <li>Lensa Fix</li>
+                                        <li>Lensa Tele</li>
+                                        <li>Microphone Wireless</li>
+                                        <li>Microphone shotgun</li>
+                                        <li>Lighting</li>
+                                        <li>Kostum</li>
+                                        <li>Dll</li>
+                                    </ol>
+                                </div>
+                            </li>
+                            <li class="bonus-item"><i class="fa-solid fa-gift"></i> Gratis Design Poster Film</li>
+                        </ul>
+                    </div>
+
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="https://wa.me/6282281693581" target="_blank" class="global-btn-order">
+                        <i class="fa-brands fa-whatsapp"></i> PESAN SHORT MOVIE
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
     <section id="series-drama">
         <h2 class="section-title">SERIES / DRAMA</h2>
             
@@ -292,32 +425,29 @@
                             <div class="slider-view">
                                 
                                 <div class="slider-track series-track" data-episode="1">
-                                    <div class="slider-slide" data-title="KEMELUT RINDU (ROMANCE)">
-                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO1.png" alt="Poster Series 1">
+                                    <div class="slider-slide" data-title="AWAL CINTA (ROMANCE)">
+                                        <img src="../../asset/BARA PRODUCTION/SERIES  DRAMA/juragan sawit 1.png" alt="Poster Series 1">
                                     </div>
-                                    <div class="slider-slide" data-title="CINTA DI KANTOR (DRAMA)">
-                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO2.png" alt="Poster Series 2">
-                                    </div>
-                                    <div class="slider-slide" data-title="BAYANGAN MASA LALU (THRILLER)">
-                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO3.png" alt="Poster Series 3">
+                                    <div class="slider-slide" data-title="IZIN MERANTAU (DRAMA)">
+                                        <img src="../../asset/BARA PRODUCTION/SERIES  DRAMA/Krakatau 1.jpg.jpeg" alt="Poster Series 2">
                                     </div>
                                 </div>
 
                                 <div class="slider-track series-track" data-episode="2" style="display: none;">
-                                    <div class="slider-slide" data-title="MISTERI GUDANG BAL (HORROR)">
-                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO4.png" alt="Poster Series 4">
+                                    <div class="slider-slide" data-title="TAK ADA RESTU (ROMANCE)">
+                                        <img src="../../asset/BARA PRODUCTION/SERIES  DRAMA/juragan sawit 2.png" alt="Poster Series 4">
                                     </div>
-                                    <div class="slider-slide" data-title="KEMBALI PADAMU (ROMANCE)">
-                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO1.png" alt="Poster Series 5">
+                                    <div class="slider-slide" data-title="BAHAYA MENERPA (DRAMA)">
+                                        <img src="../../asset/BARA PRODUCTION/SERIES  DRAMA/Krakatau 2.png" alt="Poster Series 5">
                                     </div>
                                 </div>
 
                                 <div class="slider-track series-track" data-episode="3" style="display: none;">
-                                    <div class="slider-slide" data-title="AKHIR SEBUAH CERITA (DRAMA)">
-                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO2.png" alt="Poster Series 6">
+                                    <div class="slider-slide" data-title="PERSELINGKUHAN (DRAMA)">
+                                        <img src="../../asset/BARA PRODUCTION/SERIES  DRAMA/juragan sawit 3.png" alt="Poster Series 6">
                                     </div>
-                                    <div class="slider-slide" data-title="AWAL YANG BARU (ROMANCE)">
-                                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO3.png" alt="Poster Series 7">
+                                    <div class="slider-slide" data-title="RAHASIA KRAKATAU (ROMANCE)">
+                                        <img src="../../asset/BARA PRODUCTION/SERIES  DRAMA/krakatau 3.jpg.jpeg" alt="Poster Series 7">
                                     </div>
                                 </div>
 
@@ -328,14 +458,11 @@
                             <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Selanjutnya">
                         </button>
                     </div>
-                </div>
 
-                <div class="product-price-col split-box-layout">
-                    
-                    <div class="pricelist-card">
+                    <div class="pricelist-card info-series-card">
                         <h4><i class="fa-solid fa-clapperboard"></i> INFO SERIES</h4>
                         <div class="pricelist-content">
-                            <h5 id="seriesTitleDisplay" style="color: var(--accent-yellow); font-size: 1.2rem; margin-bottom: 15px; font-weight: 900; text-transform: uppercase;">JUDUL SERIES</h5>
+                            <h5 id="seriesTitleDisplay" style="color: var(--accent-yellow); font-size: 1.2rem; margin-bottom: 10px; font-weight: 900; text-transform: uppercase;">JUDUL SERIES</h5>
                             
                             <p style="margin-bottom: 8px; font-size: 0.85rem;"><strong>📺 Pilih Episode:</strong></p>
                             <div class="episode-selector">
@@ -345,19 +472,45 @@
                             </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="product-price-col">
                     <div class="pricelist-card">
                         <div class="pricelist-content">
-                            <p><strong>💰 Estimasi Produksi:</strong><br>
-                            Mulai dari Rp 5.000.000 / Episode<br>
-                            <small style="color: #aaa;">*Durasi 10-15 Menit</small></p>
+                            <p style="margin-bottom: 15px; color: var(--accent-yellow); font-size: 1.1rem;"><strong>💰 HARGA & PAKET:</strong></p>
+                            
+                            <div style="margin-bottom: 20px; font-size: 0.9rem; line-height: 1.5;">
+                                <p style="margin-bottom: 10px;"><strong>1. Per Episode (1-7 menit)</strong><br>
+                                <span style="color: #fff; font-weight: bold; font-size: 1.05rem;">Rp 200.000++</span> <small style="color: #aaa;">(tergantung scene)</small></p>
+                                
+                                <p style="margin-bottom: 10px;"><strong>2. Paket Mini Seri (5 eps, 1-3 menit)</strong><br>
+                                <span style="color: #fff; font-weight: bold; font-size: 1.05rem;">Rp 1.000.000</span> <small style="color: #aaa;">(scene 250 Rb)</small></p>
+                                
+                                <p style="margin-bottom: 10px;"><strong>3. Paket Medium Seri (3 eps, 1-5 menit)</strong><br>
+                                <span style="color: #fff; font-weight: bold; font-size: 1.05rem;">Rp 1.000.000</span> <small style="color: #aaa;">(scene 400-500 Rb)</small></p>
+                                
+                                <p style="margin-bottom: 10px;"><strong>4. Paket Big Seri (5 eps, 1-7 menit)</strong><br>
+                                <span style="color: #fff; font-weight: bold; font-size: 1.05rem;">Rp 2.300.000</span> <small style="color: #aaa;">(scene 500 Rb)</small></p>
+                            </div>
 
-                            <p style="margin-top: 15px;"><strong>✨ Fasilitas Lengkap:</strong><br>
-                            <i class="fa-solid fa-check" style="color:var(--accent-yellow)"></i> Script & Storyboard<br>
-                            <i class="fa-solid fa-check" style="color:var(--accent-yellow)"></i> Sutradara, Kameramen, Talent<br>
-                            <i class="fa-solid fa-check" style="color:var(--accent-yellow)"></i> Editing Cinematic & Color Grading</p>
+                            <div style="border-top: 1px dashed rgba(255,255,255,0.2); margin: 15px 0;"></div>
 
-                            <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan" style="margin-top: 15px;">Konsultasi Pembuatan</a>
+                            <p style="margin-bottom: 8px;"><strong>✨ Fasilitas (Sedia/Gratis):</strong></p>
+                            <div style="font-size: 0.85rem; color: #ccc; margin-bottom: 15px; line-height: 1.6;">
+                                <i class="fa-solid fa-check" style="color:var(--accent-yellow); width: 20px;"></i> Gratis Scriptwriting & Konsep<br>
+                                <i class="fa-solid fa-check" style="color:var(--accent-yellow); width: 20px;"></i> Gratis Editing Basic<br>
+                                <i class="fa-solid fa-check" style="color:var(--accent-yellow); width: 20px;"></i> Sedia Alat Shooting<br>
+                                <i class="fa-solid fa-check" style="color:var(--accent-yellow); width: 20px;"></i> Sedia 1 Talent<br>
+                                <i class="fa-solid fa-check" style="color:var(--accent-yellow); width: 20px;"></i> Max revisi 3x / episode
+                            </div>
+
+                            <p style="margin-bottom: 8px;"><strong>➕ Biaya Tambahan:</strong></p>
+                            <div style="font-size: 0.85rem; color: #ccc; line-height: 1.6;">
+                                - Tambah revisi 3x: <strong>+Rp 50.000</strong> / eps<br>
+                                - Tambah Talent: <strong>+Rp 100.000</strong> / orang
+                            </div>
+
+                            <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan" style="margin-top: 20px; display: block; text-align: center;">Konsultasi Pembuatan</a>
                         </div>
                     </div>
 
@@ -366,73 +519,6 @@
             </div>
     </section>
     
-    <section id="short-movie" class="short-movie-section">
-        <div class="section-container">
-            
-            <h2 class="section-title">BARA MOVIE: JEMPOL MENJANGKAU DUNIA</h2>
-            
-            <div class="short-movie-layout">
-                
-                <div class="poster-column">
-                    <div class="poster-wrapper">
-                        <img src="../../asset/BARA PRODUCTION/POSTER.png" alt="Poster Film Pendek" class="poster-image">
-                    </div>
-                    <div class="movie-info-box">
-                        <h3 class="movie-title">MENJADI SISWA?</h3>
-                        <p class="movie-desc-short">Sebuah film pendek yang mengisahkan perjuangan seorang siswa dalam menghadapi dilema antara mengejar hobi yang ia cintai dan menyelesaikan tugas-tugas yang semakin menumpuk.</p>
-                    </div>
-                </div>
-                
-                <div class="content-column">
-                    
-                    <div class="video-player-wrapper">
-                        <div id="youtube-player" class="youtube-iframe-player"></div>
-
-                        <a href="https://youtu.be/6OKbHpT1HII" target="_blank" class="video-click-area" style="z-index: 10;">
-                            <div class="play-overlay">
-                                <i class="fa-brands fa-youtube"></i>
-                                <span>Tonton di YouTube</span>
-                            </div>
-                        </a>
-                        
-                        <button class="movie-mute-btn" id="movieMuteBtn" style="z-index: 20;">
-                            <i class="fa-solid fa-volume-xmark"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="bottom-row">
-                        <div class="movie-info-box-large">
-                            <h4 class="movie-title-large">DETAIL FILM</h4>
-                            <p class="movie-desc-long">Jempol Menjangkau Dunia mengisahkan dampak tak terduga dari satu jempol. Diproduksi oleh tim Bara Production dengan kualitas sinematik terbaik.</p>
-                        </div>
-                        
-                        <div class="price-list-box">
-                            <div class="price-list-header">
-                                <i class="fas fa-ticket-alt gold-icon"></i>
-                                <h4>PRICE LIST</h4>
-                            </div>
-                            <ul class="price-list">
-                                <li>
-                                    <i class="fas fa-star gold-icon"></i>
-                                    Tonton Saja (Standard): <span class="price-item">Rp 0</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-video-slash gold-icon"></i>
-                                    Akses Eksklusif & BTS: <span class="price-item">Rp 25.000</span>
-                                </li>
-                                <li>
-                                    <i class="fas fa-envelope-open-text gold-icon"></i>
-                                    Digital Sign & Q&A (Collector's): <span class="price-item">Rp 50.000</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-
     <section id="content-creator">
             <h2 class="section-title">CONTENT CREATOR</h2>
             <p class="cc-slide-instruction">
@@ -676,23 +762,66 @@
                         <div class="ig-carousel-track" id="igTrack">
                             
                             <div class="ig-slide-group active">
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/1.png" alt="IG 1"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/2.png" alt="IG 2"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/3.png" alt="IG 3"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/4.png" alt="IG 4"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/5.png" alt="IG 5"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/6.jpg.jpeg" alt="IG 6"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/7.png" alt="IG 7"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/8.png" alt="IG 8"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/0.jpg.jpeg" alt="IG 1"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/1.jpg.jpeg" alt="IG 2"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/3.jpg.jpeg" alt="IG 3"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/4.jpg.jpeg" alt="IG 4"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/5.jpg.jpeg" alt="IG 5"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/6.png" alt="IG 6"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/7.jpg.jpeg" alt="IG 7"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/8.jpg.jpeg" alt="IG 8"></div>
                             </div>
 
                             <div class="ig-slide-group">
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/9.png" alt="IG 9"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/10.png" alt="IG 10"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/11.png" alt="IG 11"></div>
-                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/P.png" alt="IG 12"></div>
-                                </div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/9.jpg.jpeg" alt="IG 9"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/10.jpg.jpeg" alt="IG 10"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/11.jpg.jpeg" alt="IG 11"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/12.jpg.jpeg" alt="IG 12"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/13.jpg.jpeg" alt="IG 13"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/14.jpg.jpeg" alt="IG 14"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/15.jpg.jpeg" alt="IG 15"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/16.jpg.jpeg" alt="IG 16"></div>
+                            </div>
 
+                            <div class="ig-slide-group">
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/17.jpg.jpeg" alt="IG 17"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/18.jpg.jpeg" alt="IG 18"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/19.jpg.jpeg" alt="IG 19"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/20.jpg.jpeg" alt="IG 20"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/21.jpg.jpeg" alt="IG 21"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/22.jpg.jpeg" alt="IG 22"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/24.jpg.jpeg" alt="IG 23"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/25.jpg.jpeg" alt="IG 24"></div>
+                            </div>
+
+                            <div class="ig-slide-group">
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/26.jpg.jpeg" alt="IG 25"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/27.png" alt="IG 26"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/28.jpg.jpeg" alt="IG 27"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/29.jpg.jpeg" alt="IG 28"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/30.jpg.jpeg" alt="IG 29"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/31.jpg.jpeg" alt="IG 30"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/32.jpg.jpeg" alt="IG 31"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/33.png" alt="IG 32"></div>
+                            </div>
+
+                            <div class="ig-slide-group">
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/34.jpg.jpeg" alt="IG 32"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/35.jpg.jpeg" alt="IG 33"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/36.jpg.jpeg" alt="IG 34"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/37.jpg.jpeg" alt="IG 35"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/38.png" alt="IG 36"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/39.png" alt="IG 37"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/40.jpg.jpeg" alt="IG 38"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/41.jpg.jpeg" alt="IG 38"></div>
+                            </div>
+
+                            <div class="ig-slide-group">
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/42.jpg.jpeg" alt="IG 40"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/43.png" alt="IG 41"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/44.jpg.jpeg" alt="IG 42"></div>
+                                <div class="ig-photo-box"><img src="../../asset/BARA PRODUCTION/PORTOFOLIO FEED INSTAGRAM/45.png" alt="IG 43"></div>
+                            </div>
                         </div>
                     </div>
 
@@ -869,33 +998,117 @@
 
     <section id="jasa-editing">
         <h2 class="section-title">JASA EDITING FOTO & VIDEO</h2>
-        
+        <h3 class="editing-sub-title"><i class="fa-solid fa-film"></i> EDITING VIDEO</h3>
+
         <div class="editing-services-grid">
             <div class="editing-card">
                 <div class="card-image-box">
-                    <img src="../../asset/BARA PRODUCTION/POSTER 1.png" alt="Portofolio 1">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/1. editing simple.png" alt="Portofolio 1">
                 </div>
                 <div class="card-text-box">
-                    <h3>VIDEO EDITING - MEDIA SOSIAL</h3>
-                    <p>Editing cinematic untuk TikTok, Instagram Reels, YouTube Shorts dengan gaya Bara Production.</p>
+                    <h3>Editing simple</h3>
+                    <p><span class="price-highlight">25 Rb - 40 Rb</span> / 1 menit.</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
                 </div>
             </div>
             <div class="editing-card">
                 <div class="card-image-box">
-                    <img src="../../asset/BARA PRODUCTION/POSTER 2,2.png" alt="Portofolio 2">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/2. editing short.png" alt="Portofolio 2">
                 </div>
                 <div class="card-text-box">
-                    <h3>YT VIDEO & SERIES</h3>
-                    <p>Poles penuh, color grading cinematic untuk video YouTube, Series/Drama, dan Dokumentasi.</p>
+                    <h3>Content sosmed short</h3>
+                    <p><span class="price-highlight">80 Rb - 500 Rb</span> / 1 menit.</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
                 </div>
             </div>
             <div class="editing-card">
                 <div class="card-image-box">
-                    <img src="../../asset/BARA PRODUCTION/POSTER 1,8.png" alt="Portofolio 3">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/3. editing video panjang.png" alt="Portofolio 3">
                 </div>
                 <div class="card-text-box">
-                    <h3>VIDEO IKLAN & PROMOSI</h3>
-                    <p>Buat iklanmu lebih persuasif dengan editing yang dinamis dan color grading yang tepat.</p>
+                    <h3>Video panjang / youtube</h3>
+                    <p><span class="price-highlight">200 Rb - 1,5 Jt</span><br>Tergantung footage, durasi, gaya editing.</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="editing-services-grid">
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/4. editing cinematic.png" alt="Portofolio 1">
+                </div>
+                <div class="card-text-box">
+                    <h3>Ala-ala cinematic</h3>
+                    <p><span class="price-highlight">300 Rb - 1,5 Jt</span><br>Fokus terhadap color grading & transisi halus.</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
+                </div>
+            </div>
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/5. editing profil.png" alt="Portofolio 2">
+                </div>
+                <div class="card-text-box">
+                    <h3>Company profile & iklan</h3>
+                    <p><span class="price-highlight">750 Rb - 3,5 Jt</span><br>Melibatkan animasi, motion grafik & standar komersil.</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="editing-sub-title" style="margin-top: 30px;"><i class="fa-solid fa-camera"></i> EDITING FOTO</h3>
+        <div class="editing-services-grid">
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/1. editing simpel retouching.png" alt="Portofolio 1">
+                </div>
+                <div class="card-text-box">
+                    <h3>Basic retouching</h3>
+                    <p><span class="price-highlight">Rp 5 Rb - Rp 20 Rb</span> / foto<br>Penyesuaian cahaya "exposure", warna, dan ketajaman standar.</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
+                </div>
+            </div>
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/2. editing beauty retouch.png" alt="Portofolio 2">
+                </div>
+                <div class="card-text-box">
+                    <h3>Beauty retouch</h3>
+                    <p><span class="price-highlight">Rp 25 Rb - Rp 75 Rb</span> / foto<br>Pembersihan kulit, bentuk wajah, dan detail rambut secara halus.</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
+                </div>
+            </div>
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/3. editing manipulasi.png" alt="Portofolio 3">
+                </div>
+                <div class="card-text-box">
+                    <h3>Manipulasi/Digital Imaging</h3>
+                    <p><span class="price-highlight">Rp 50 Rb - Rp 500 Rb++</span> / 2 foto<br>Ganti latar belakang, penggabungan objek, atau efek fantasi.</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="editing-services-grid">
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/4. editing restorasi.png" alt="Portofolio 1">
+                </div>
+                <div class="card-text-box">
+                    <h3>Restorasi foto lama</h3>
+                    <p><span class="price-highlight">Rp 50 Rb - Rp 200 Rb</span> / foto<br>Memperbaiki foto rusak, berjamur, atau menambah warna (colorizing).</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
+                </div>
+            </div>
+            <div class="editing-card">
+                <div class="card-image-box">
+                    <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/5. editing menciptakan.png" alt="Portofolio 2">
+                </div>
+                <div class="card-text-box">
+                    <h3>Menciptakan foto AI</h3>
+                    <p><span class="price-highlight">Rp 7 Rb</span> / foto</p>
+                    <a href="#" class="btn btn-pesan">Pesan</a>
                 </div>
             </div>
         </div>
@@ -904,78 +1117,435 @@
             <h3 class="package-group-title">PAKET EDITING</h3>
             
             <div class="editing-packages-grid">
+                
                 <div class="editing-card">
                     <div class="card-image-box">
-                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO1.png" alt="Paket 1">
+                        <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/1. paket wisuda wedding.png" alt="Paket Wisuda Wedding">
                     </div>
                     <div class="card-text-box">
-                        <h3>BASIC</h3>
-                        <p>Poles dasar, pengerjaan cepat. Maksimal 3 revisi (gratis).</p>
-                        <a href="#" class="btn btn-small">Cek Harga</a>
+                        <h3>PAKET WISUDA / WEDDING</h3>
+                        <p><span class="price-highlight">Rp 150 Rb - Rp 500 Rb</span><br>Untuk 10-20 foto pilihan. Sudah mencakup tone/color grading khusus.</p>
+                        <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan">Pesan Paket</a>
                     </div>
                 </div>
                 
                 <div class="editing-card">
                     <div class="card-image-box">
-                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO2.png" alt="Paket 2">
+                        <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/2. paket e-commerce.png" alt="Paket E-commerce">
                     </div>
                     <div class="card-text-box">
-                        <h3>MEDIUM</h3>
-                        <p>Poles hemat, cinematic. Maksimal 5 revisi. Bonus poster & copywriting.</p>
-                        <a href="#" class="btn btn-small">Ambil Paket</a>
+                        <h3>PAKET E-COMMERCE</h3>
+                        <p><span class="price-highlight">Rp 15 Rb - Rp 35 Rb</span> / foto<br>Sudah termasuk hapus latar belakang dan perbaikan tekstur produk.</p>
+                        <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan">Pesan Paket</a>
                     </div>
                 </div>
                 
                 <div class="editing-card">
                     <div class="card-image-box">
-                        <img src="../../asset/BARA PRODUCTION/DKAYWIL FOTO3.png" alt="Paket 3">
+                        <img src="../../asset/BARA PRODUCTION/JASA EDITING FOTO & VIDEO/3. paket fixer.png" alt="Paket Fixer">
                     </div>
                     <div class="card-text-box">
-                        <h3>PREMIUM</h3>
-                        <p>Cinematic, pengerjaan prioritas. Maksimal 7 revisi. Bonus scriptwriting.</p>
-                        <a href="#" class="btn btn-small">Beli Paket</a>
+                        <h3>PAKET HARIAN (FIXER)</h3>
+                        <p><span class="price-highlight">Rp 250 Rb - Rp 600 Rb</span> / hari<br>Untuk menangani volume foto yang besar (*Harga menyesuaikan).</p>
+                        <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan">Pesan Paket</a>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
         
-    <section id="layanan">
-            <h2 class="section-title">Layanan Animasi</h2>
-            <div class="dummy-box-container">
-                <div class="dummy-box">
-                    <h3>2D Animation</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-                <div class="dummy-box">
-                    <h3>3D Modeling</h3>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                </div>
-                <div class="dummy-box">
-                    <h3>Motion Graphics</h3>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-    </section>
+    <section id="video-iklan">
+            <h2 class="section-title">VIDEO IKLAN & PROMOSI</h2>
+            <p class="cc-slide-instruction" style="text-align: center; color: #aaa; margin-bottom: 20px;">
+                <strong>Slide untuk melihat portofolio video</strong> 
+            </p>  
 
-    <section id="karya">
-            <h2 class="section-title">Galeri Karya</h2>
-            <p style="text-align: center; margin-bottom: 30px;">Tulisan random untuk deskripsi galeri karya animasi Bara Studios.</p>
+            <div class="iklan-carousel-container">
+                <button class="slider-btn prev-btn" id="btnIklanPrev">
+                    <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Sebelumnya">
+                </button>
+                <div class="iklan-carousel-center">
+                    <div class="iklan-carousel-track" id="iklanTrack">
+                        
+                        <div class="iklan-carousel-slide active" data-caption="BAHAGIA FITNESS CENTER - INSTAGRAM & TIKTOK">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+                                    <video width="100%" height="100%" src="../../asset/BARA PRODUCTION/video conten creator/iklan 1.mp4" loop muted playsinline style="object-fit: cover; border-radius: 0;"></video>
+                                    <button class="mute-btn-iklan"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="iklan-carousel-slide" data-caption="DKAYWILL - E-COMMERCE">
+                            <div class="css-iphone-mockup silver-edition">
+                                <div class="iphone-bezel-top"><div class="camera-dot"></div><div class="speaker-grill"></div></div>
+                                <div class="iphone-display">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/9KBJCdumLnc?enablejsapi=1&controls=0&modestbranding=1&rel=0&playsinline=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 0;"></iframe>
+                                    <button class="mute-btn-iklan"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-bottom"><div class="home-button"></div></div>
+                            </div>
+                        </div>
+
+                        <div class="iklan-carousel-slide" data-caption="KOMIKINS! - YOUTUBE">
+                            <div class="css-iphone-landscape silver-edition">
+                                <div class="iphone-bezel-left">
+                                    <div class="camera-dot"></div><div class="speaker-grill"></div>
+                                </div>
+                                <div class="iphone-display-landscape">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/0cIod9pHVsI?enablejsapi=1&controls=0&modestbranding=1&rel=0&playsinline=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="border-radius: 0;"></iframe>
+                                    <button class="mute-btn-iklan"><i class="fa-solid fa-volume-xmark"></i></button>
+                                </div>
+                                <div class="iphone-bezel-right">
+                                    <div class="home-button"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="slider-btn next-btn" id="btnIklanNext">
+                    <img src="../../asset/BARA PRODUCTION/button geser.png" alt="Selanjutnya">
+                </button>
+            </div>
             
-            <div class="dummy-gallery">
-                <div class="gallery-item">Gambar Random 1</div>
-                <div class="gallery-item">Gambar Random 2</div>
-                <div class="gallery-item">Gambar Random 3</div>
-                <div class="gallery-item">Gambar Random 4</div>
+        <h3 id="iklanCaption" class="cc-dynamic-caption" color: var(--accent-yellow, #ffcc00); margin-top: 20px; font-weight: 800; letter-spacing: 1px; transition: opacity 0.3s ease;">Memuat Judul...</h3>
+        
+        <div class="iklan-pricing-container">
+            <div class="iklan-pricing-box">
+                <h4 class="pricing-title">Pricelist Paket Video</h4>
+                
+                <ul class="pricing-tier-list">
+                    <li>
+                        <div class="tier-info">
+                            <span class="tier-name">Iklan Product</span>
+                            <span class="tier-duration"><i class="fa-regular fa-clock"></i> 50 Detik</span>
+                        </div>
+                        <div class="tier-price">Rp 200 Rb</div>
+                    </li>
+                    <li>
+                        <div class="tier-info">
+                            <span class="tier-name">Iklan Product + Talent</span>
+                            <span class="tier-duration"><i class="fa-regular fa-clock"></i> 1 Menit</span>
+                        </div>
+                        <div class="tier-price">Rp 350 Rb</div>
+                    </li>
+                    <li>
+                        <div class="tier-info">
+                            <span class="tier-name">Iklan Promosi + Talent (Max 3 Orang)</span>
+                            <span class="tier-duration"><i class="fa-regular fa-clock"></i> 2 Menit</span>
+                        </div>
+                        <div class="tier-price">Rp 500 Rb</div>
+                    </li>
+                    <li>
+                        <div class="tier-info">
+                            <span class="tier-name">Iklan Promosi + Talent (Max 6 Orang)</span>
+                            <span class="tier-duration"><i class="fa-regular fa-clock"></i> 2 Menit</span>
+                        </div>
+                        <div class="tier-price">Rp 700 Rb</div>
+                    </li>
+                </ul>
+
+                <a href="https://wa.me/6281234567890?text=Halo%20Bara%20Production,%20saya%20tertarik%20dengan%20Pricelist%20Video%20Iklan-nya!" target="_blank" class="iklan-cta-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Konsultasi Sekarang
+                </a>
             </div>
+        </div>
+        
     </section>
 
-    </div>
+    <section id="foto-dokumentasi">
+        <h2 class="section-title">FOTO DOKUMENTASI</h2>
+        
+    <div class="product-layout-grid">           
+            <div class="product-slider-col" style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <div class="single-image-wrapper" style="padding: 0;">
+                    <img src="../../asset/BARA PRODUCTION/FOTO DEKOMENTASI/FOTO DEKOMENTASI.png" alt="Ilustrasi Jasa Foto Dokumentasi" class="single-product-image">
+                </div>
+
+                <div class="ultimate-package-box" style="margin-top: 0; width: 100%; box-sizing: border-box;">
+                    <h5 class="ultimate-title">🔥 Best Deal: Level Foto + Video Dokumentasi</h5>
+                    <p class="ultimate-duration">(max 4 jam)</p>
+                    <div class="ultimate-price">Rp 3.700.000 <small>/ event</small></div>
+                    
+                    <ul class="foto-facilities-list">
+                        <li><i class="fa-solid fa-star" style="color: var(--accent-yellow, #ffcc00);"></i> 1-2 Fotografer + Videografer</li>
+                        <li><i class="fa-solid fa-star" style="color: var(--accent-yellow, #ffcc00);"></i> File Digital</li>
+                        <li><i class="fa-solid fa-star" style="color: var(--accent-yellow, #ffcc00);"></i> Editing Keren</li>
+                        <li><i class="fa-solid fa-star" style="color: var(--accent-yellow, #ffcc00);"></i> 12 Desain Poster</li>
+                        <li><i class="fa-solid fa-star" style="color: var(--accent-yellow, #ffcc00);"></i> 2 Video Vlog</li>
+                        <li><i class="fa-solid fa-star" style="color: var(--accent-yellow, #ffcc00);"></i> 2 Video Dokumentasi</li>
+                        <li><i class="fa-solid fa-star" style="color: var(--accent-yellow, #ffcc00);"></i> 1-2 Ala-ala Cinematic Video</li>
+                        <li><i class="fa-solid fa-star" style="color: var(--accent-yellow, #ffcc00);"></i> On-call Photographer</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="product-price-col">
+                <h4 style="margin-bottom: 20px; color: #fff;"><i class="fa-solid fa-camera-retro"></i> PRICE FOTO DOKUMENTASI</h4>
+                
+                <div class="foto-packages-container">
+                    
+                    <div class="foto-package-card">
+                        <div class="foto-card-header">
+                            <span class="foto-level-name">0. Level Satuan <small>(10 foto)</small></span>
+                            <span class="foto-level-price">Rp 150.000</span>
+                        </div>
+                        <ul class="foto-facilities-list">
+                            <li><i class="fa-solid fa-check"></i> Fotografer 1 kali sesi</li>
+                            <li><i class="fa-solid fa-check"></i> File Digital</li>
+                        </ul>
+                    </div>
+
+                    <div class="foto-package-card">
+                        <div class="foto-card-header">
+                            <span class="foto-level-name">1. Level Basic <small>(max 4 jam)</small></span>
+                            <span class="foto-level-price">Rp 500k – 800k</span>
+                        </div>
+                        <ul class="foto-facilities-list">
+                            <li><i class="fa-solid fa-check"></i> 1 Fotografer</li>
+                            <li><i class="fa-solid fa-check"></i> File Digital</li>
+                            <li><i class="fa-solid fa-check"></i> Basic Editing</li>
+                            <li><i class="fa-solid fa-check"></i> On-call Photographer</li>
+                        </ul>
+                    </div>
+
+                    <div class="foto-package-card">
+                        <div class="foto-card-header">
+                            <span class="foto-level-name">2. Level Tengah <small>(max 4 jam)</small></span>
+                            <span class="foto-level-price">Rp 700k – 1,3 Jt</span>
+                        </div>
+                        <ul class="foto-facilities-list">
+                            <li><i class="fa-solid fa-check"></i> 1-2 Fotografer</li>
+                            <li><i class="fa-solid fa-check"></i> File Digital</li>
+                            <li><i class="fa-solid fa-check"></i> Basic Editing</li>
+                            <li><i class="fa-solid fa-check"></i> 4 Desain Poster</li>
+                            <li><i class="fa-solid fa-check"></i> On-call Photographer</li>
+                        </ul>
+                    </div>
+
+                    <div class="foto-package-card">
+                        <div class="foto-card-header">
+                            <span class="foto-level-name">3. Level Oke <small>(max 4 jam)</small></span>
+                            <span class="foto-level-price">Rp 2,2 Jt</span>
+                        </div>
+                        <ul class="foto-facilities-list">
+                            <li><i class="fa-solid fa-check"></i> 1-2 Fotografer</li>
+                            <li><i class="fa-solid fa-check"></i> File Digital</li>
+                            <li><i class="fa-solid fa-check"></i> Editing Keren</li>
+                            <li><i class="fa-solid fa-check"></i> 12 Desain Poster</li>
+                            <li><i class="fa-solid fa-check"></i> Mini Vlog Video</li>
+                            <li><i class="fa-solid fa-check"></i> On-call Photographer</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan script-btn" style="width: 100%; text-align: center; display: block; margin-top: 10px;">Booking Jadwal Sekarang</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="video-dokumentasi" style="padding: 60px 0; background-color: transparent;">
+        <h2 class="section-title">VIDEO DOKUMENTASI</h2>
+        <div class="video-doc-layout-grid" style="display: flex; flex-direction: column; align-items: center; gap: 40px; width: 100%;">
+            
+            <div class="video-container" style="display: flex; justify-content: center; width: 100%; max-width: 800px; padding: 0 20px; box-sizing: border-box;">
+                <div class="video-wrapper" style="width: 100%; position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 12px; border: 2px solid #444; overflow: hidden; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);">
+                    
+                    <div id="yt-player-doc" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;"></div>
+
+                    <button class="movie-mute-btn" id="mute-btn-doc" style="z-index: 20;">
+                        <i class="fa-solid fa-volume-xmark"></i>
+                    </button>
+                    
+                </div>
+            </div>
+
+            <div class="product-price-col" style="max-width: 900px; width: 100%; margin: 0 auto; padding: 0 20px;">
+                
+                <h4 style="margin-bottom: 20px; text-align: center; color: #fff;"><i class="fa-solid fa-film"></i> PRICE VIDEO DOKUMENTASI</h4>
+                
+                <div class="video-grid-container">
+                    
+                    <div class="foto-package-card">
+                        <div class="foto-card-header">
+                            <span class="foto-level-name">0. Level Satuan <small>(3 menit)</small></span>
+                            <span class="foto-level-price">Rp 250 Rb</span>
+                        </div>
+                        <ul class="foto-facilities-list">
+                            <li><i class="fa-solid fa-check"></i> videografer 1 kali sesi</li>
+                            <li><i class="fa-solid fa-check"></i> File Digital</li>
+                        </ul>
+                    </div>
+
+                    <div class="foto-package-card">
+                        <div class="foto-card-header">
+                            <span class="foto-level-name">1. Level Basic <small>(max 4 jam)</small></span>
+                            <span class="foto-level-price">Rp 350k - 1 Jt</span>
+                        </div>
+                        <ul class="foto-facilities-list">
+                            <li><i class="fa-solid fa-check"></i> 1 videografer & File digital</li>
+                            <li><i class="fa-solid fa-check"></i> basic editing & On-call</li>
+                        </ul>
+                    </div>
+
+                    <div class="foto-package-card">
+                        <div class="foto-card-header">
+                            <span class="foto-level-name">2. Level Tengah <small>(max 4 jam)</small></span>
+                            <span class="foto-level-price">850k - 1,5 Jt</span>
+                        </div>
+                        <ul class="foto-facilities-list">
+                            <li><i class="fa-solid fa-check"></i> 1-2 videografer & Digital</li>
+                            <li><i class="fa-solid fa-check"></i> basic editing & 4 mini vlog</li>
+                        </ul>
+                    </div>
+
+                    <div class="foto-package-card">
+                        <div class="foto-card-header">
+                            <span class="foto-level-name">3. Level Oke <small>(max 4 jam)</small></span>
+                            <span class="foto-level-price">Rp 2,2 Jt</span>
+                        </div>
+                        <ul class="foto-facilities-list">
+                            <li><i class="fa-solid fa-check"></i> 1-2 videografer & Editing</li>
+                            <li><i class="fa-solid fa-check"></i> 5 mini vlog & 2 cinematic</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="ultimate-package-box" style="margin-top: 15px;">
+                    <h5 class="ultimate-title">🔥 Best Deal: Level Foto + Video Dokumentasi</h5>
+                    <div class="ultimate-price" style="font-size: 1.2rem; margin-bottom: 5px;">Rp 3.700.000 <small>(max 4 jam)</small></div>
+                    <ul class="foto-facilities-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2px 15px;">
+                        <li><i class="fa-solid fa-star"></i> 1-2 Foto + Video</li>
+                        <li><i class="fa-solid fa-star"></i> File Digital & Editing</li>
+                        <li><i class="fa-solid fa-star"></i> 12 Desain poster</li>
+                        <li><i class="fa-solid fa-star"></i> 2 video vlog</li>
+                        <li><i class="fa-solid fa-star"></i> 2 dokumentasi</li>
+                        <li><i class="fa-solid fa-star"></i> 1-2 cinematic</li>
+                        <li><i class="fa-solid fa-star"></i> On-call Photo</li>
+                    </ul>
+                </div>
+
+                <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan script-btn" style="width: 100%; text-align: center; display: block; margin-top: 20px;">Booking Jadwal Video</a>
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <section id="scriptwriting">
+        <h2 class="section-title">SCRIPTWRITING</h2>
+        
+        <div class="product-layout-grid">
+            
+            <div class="product-slider-col">
+                <div class="single-image-wrapper">
+                    <img src="../../asset/BARA PRODUCTION/SCRIPTWRITING/scriptwriting.png" alt="Ilustrasi Jasa Scriptwriting" class="single-product-image">
+                </div>
+            </div>
+
+            <div class="product-price-col">
+                <div class="pricelist-card">
+                    <h4><i class="fa-solid fa-pen-nib"></i> PRICE SCRIPTWRITING</h4>
+                    
+                    <div class="pricelist-content">
+                        <p class="script-category-title"><strong>📝 Kategori Naskah:</strong></p>
+                        
+                        <div class="script-price-list">
+                            <p class="script-price-item">
+                                <strong>1. Script Video Pendek</strong> <small class="script-note">(30–60 detik)</small><br>
+                                <span class="script-price-amount">Rp 50.000 – Rp 150.000</span> <small class="script-note">/ script</small>
+                            </p>
+
+                            <p class="script-price-item">
+                                <strong>2. Script Video Panjang</strong> <small class="script-note">(5-10 menit)</small><br>
+                                <span class="script-price-amount">Rp 150.000 – Rp 300.000</span> <small class="script-note">/ script</small>
+                            </p>
+
+                            <p class="script-price-item">
+                                <strong>3. Script Series</strong> <small class="script-note">(Ber-episode)</small><br>
+                                <span class="script-price-amount">Rp 160.000 – Rp 350.000</span> <small class="script-note">/ script</small>
+                            </p>
+
+                            <p class="script-price-item">
+                                <strong>4. Script Iklan / Campaign Brand</strong><br>
+                                <span class="script-price-amount">Rp 300.000 – Rp 700.000</span> <small class="script-note">/ script</small>
+                            </p>
+
+                            <p class="script-price-item">
+                                <strong>5. Script Short Movie</strong><br>
+                                <span class="script-price-amount">Rp 500.000 – Rp 1.500.000</span> <small class="script-note">/ script</small>
+                            </p>
+                        </div>
+
+                        <div class="script-divider"></div>
+
+                        <p class="script-fac-title"><strong>✨ Fasilitas yang Didapat:</strong></p>
+                        <div class="script-facilities-list">
+                            <i class="fa-solid fa-check script-check-icon"></i> Riset Materi & Ide Cerita<br>
+                            <i class="fa-solid fa-check script-check-icon"></i> Format Naskah Standar Industri<br>
+                            <i class="fa-solid fa-check script-check-icon"></i> Gratis Revisi Minor (Max 2x)<br>
+                            <i class="fa-solid fa-check script-check-icon"></i> Bebas Konsultasi Konsep
+                        </div>
+
+                        <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-pesan script-btn">Diskusi Ide Script</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <section id="kontak">
+        <h2 class="section-title">Mari Bekerja Sama</h2>
+        <div class="kontak-konten">
+            <p>Punya proyek menarik atau pertanyaan? Jangan ragu untuk menghubungi Bara Studios melalui saluran di bawah ini.</p>
+                
+            <div class="kontak-buttons">
+                <a href="https://wa.me/6282281693581" target="_blank" class="btn btn-wa">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>WhatsApp<br><small>+62 822-8169-3581</small></span>
+                </a>
+                    
+                <a href="mailto:bayudawara@gmail.com" class="btn btn-email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email<br><small>bayudawara@gmail.com</small></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+    
 
     <footer>
-        <p>&copy; 2026 Bara Animation. Subdivisi dari Bara Studios.</p>
+        <div class="social-links">
+            <a href="https://youtube.com/@baratubeyt?si=pcqNRf2W5vsQ3KTe" target="_blank">
+                <i class="fa-brands fa-youtube"></i> <span>Bara Tube</span>
+            </a>
+            <a href="https://www.tiktok.com/@bara_tube?_r=1&_t=ZS-950sDCQ4n8U" target="_blank">
+                <i class="fa-brands fa-tiktok"></i> <span>@Bara_Tube</span>
+            </a>
+            <a href="https://www.instagram.com/bara_studios_?igsh=MXhtZjRqNjJhODU3Ng==" target="_blank">
+                <i class="fa-brands fa-instagram"></i> <span>@Bara_Studios_</span>
+            </a>
+            <a href="https://www.facebook.com/share/188S67b5gK/" target="_blank">
+                <i class="fa-brands fa-facebook"></i> <span>Bara Tube YT</span>
+            </a>
+        </div>
+        <p>&copy; 2026 Bara Production. Subdivisi dari Bara Studios.</p>
     </footer>
-
+</div>
     <script src="script.js"></script>
 </body>
 </html>

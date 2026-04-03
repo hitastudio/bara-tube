@@ -1,4 +1,114 @@
-        /* Pengaturan Dasar */
+    /* ==========================================================================
+   0. SECTION TEAM - GRID 4 KOLOM
+   ========================================================================== */
+#TEAM {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.team-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* KUNCI: 4 Kolom berjejer */
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.team-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid #333;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-yellow, #ffcc00);
+    box-shadow: 0 10px 25px rgba(255, 204, 0, 0.1);
+}
+
+.team-photo-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Biar foto otomatis kotak sempurna */
+    overflow: hidden;
+    background-color: #222;
+}
+
+.team-photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Biar foto gak gepeng walau beda ukuran */
+    transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-photo-wrapper img {
+    transform: scale(1.1); /* Efek zoom foto pas disorot */
+}
+
+.team-info {
+    padding: 15px;
+}
+
+.team-info h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.team-info p {
+    color: var(--accent-yellow, #ffcc00); /* Warna Pangkat/Jabatan */
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* RESPONSIVE: Biar gak maksa di layar kecil */
+@media (max-width: 992px) {
+    .team-grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Di Tablet jadi 2 kolom */
+    }
+}
+
+/* ==========================================================================
+   RESPONSIF HP: FORMASI TEAM 3-3-2 (CENTERED)
+   ========================================================================== */
+@media (max-width: 768px) {
+    #TEAM {
+        padding: 40px 10px; /* Perkecil padding samping agar muat 3 kartu */
+    }
+
+    .team-grid-container {
+        display: flex; /* 💡 Ubah ke Flex agar bisa rata tengah di baris terakhir */
+        flex-wrap: wrap;
+        justify-content: center; /* 💡 KUNCI: Membuat baris terakhir (2 orang) ke tengah */
+        gap: 8px; /* Rapatkan jarak antar kartu biar muat 3 baris */
+    }
+
+    .team-card {
+        /* 💡 KUNCI: 33% dikurangi gap agar pas 3 kolom */
+        flex: 0 0 calc(33.33% - 6px); 
+        max-width: calc(33.33% - 6px);
+        border-radius: 10px; /* Perkecil lengkungan sudut */
+    }
+
+    .team-info {
+        padding: 8px 5px; /* Ruang teks dipersempit */
+    }
+
+    /* 💡 KECILKAN TEKS: Karena kartu jadi sangat kecil, teks harus disesuaikan */
+    .team-info h3 {
+        font-size: 0.65rem; /* Judul nama diperkecil */
+        margin-bottom: 2px;
+    }
+
+    .team-info p {
+        font-size: 0.45rem; /* Jabatan dibuat mikro agar tidak enter */
+        letter-spacing: 0;
+        line-height: 1.1;
+    }
+}
         * {
             margin: 0;
             padding: 0;
@@ -690,4 +800,139 @@
         .social-links a span {
             font-size: 0.8rem; /* Teks mengecil */
         }
+
+
+        .social-links {
+        display: flex;
+        flex-wrap: nowrap;      /* KUNCI: Melarang ikon turun ke bawah */
+        justify-content: center; /* Tetap di tengah */
+        gap: 5px;               /* Jarak antar kotak dipersempit */
+        width: 100%;
+        overflow: hidden;        /* Biar gak ada scroll samping */
     }
+
+    .social-links a {
+        padding: 6px 8px;       /* Padding kotak dibuat sangat ramping */
+        gap: 5px;               /* Jarak ikon ke teks diperkecil */
+        flex: 1;                /* Membagi ruang sama rata */
+        min-width: 0;           /* Izin untuk mengecil sesempit mungkin */
+        white-space: nowrap;    /* Teks dipaksa lurus, gak boleh enter */
+    }
+
+    .social-links a i {
+        font-size: 1rem;        /* Ikon dikecilkan agar muat */
+    }
+
+    .social-links a span {
+        font-size: 0.65rem;     /* Teks dikecilkan drastis agar cukup 1 baris */
+        letter-spacing: -0.2px; /* Merapatkan huruf sedikit */
+    }
+
+
+
+
+    }
+
+/* --- Desktop: Sembunyikan Tombol Menu --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ==========================================================================
+   RESPONSIF HP (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 5%;
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--primary-red);
+        z-index: 1000;
+    }
+
+    .menu-toggle {
+        display: flex;
+        z-index: 2000; /* Biar tetap di atas menu */
+    }
+/* --- SIDEBAR --- */
+    nav#nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 280px;
+        height: 100vh;
+        background-color: var(--primary-red);
+        padding-top: 100px;
+        transition: 0.4s ease-in-out;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+        z-index: 1050;
+    }
+
+    nav#nav-menu.active {
+        right: 0;
+    }
+
+    /* 💡 UBAH JADI RATA KIRI */
+    nav#nav-menu ul {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start; /* Geser konten ke kiri */
+        gap: 0; /* Jarak antar menu diatur lewat padding li */
+        list-style: none;
+        padding: 0 30px; /* Kasih ruang di kiri biar teks gak nempel tembok */
+    }
+
+    nav#nav-menu ul li {
+        width: 100%; /* Biar garis putus-putusnya memanjang full */
+        /* 💡 GARIS PUTUS-PUTUS DI SINI */
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.3); 
+    }
+
+    /* Hilangkan garis di menu paling terakhir */
+    nav#nav-menu ul li:last-child {
+        border-bottom: none;
+    }
+
+    nav#nav-menu ul li a {
+        color: white !important;
+        font-size: 1.1rem;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: block;
+        padding: 15px 0; /* Jarak atas-bawah menu */
+        text-align: left; /* Teks rata kiri */
+        transition: 0.3s;
+    }
+
+    /* Efek pas menu disentuh */
+    nav#nav-menu ul li a:hover {
+        color: var(--accent-yellow) !important;
+        padding-left: 10px; /* Sedikit geser ke kanan pas di-hover */
+    }
+
+    /* --- ANIMASI X --- */
+    .menu-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); background-color: #ffcc00; }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); background-color: #ffcc00; }
+}

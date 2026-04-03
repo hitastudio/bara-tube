@@ -1,4 +1,25 @@
+/* ==========================================================================
+   HAMBURGER MENU TOGGLE (Animasi X & Dropdown)
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", function() {
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const mainNav = document.getElementById("main-nav");
+    const navLinks = mainNav.querySelectorAll("a");
 
+    // Jika tombol diklik
+    hamburgerBtn.addEventListener("click", function() {
+        hamburgerBtn.classList.toggle("active"); // Putar garis jadi X
+        mainNav.classList.toggle("active");      // Turunkan menu dropdown
+    });
+
+    // Jika salah satu menu ditekan, otomatis tutup
+    navLinks.forEach(link => {
+        link.addEventListener("click", function() {
+            hamburgerBtn.classList.remove("active"); // Balikin X jadi garis 3
+            mainNav.classList.remove("active");      // Naikkan menu
+        });
+    });
+});
 document.addEventListener('DOMContentLoaded', () => {
 
 // ========================================================
@@ -56,17 +77,29 @@ document.addEventListener('DOMContentLoaded', () => {
             finishLoading();
         }
     }, 8000);
+
     // ========================================================
-    // 1. SMOOTH SCROLL NAVIGASI
+    // 1. SMOOTH SCROLL NAVIGASI (VERSI AKURAT)
     // ========================================================
-    document.querySelectorAll('nav a[href^="#"], .hero a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
+            
+            // Jika hanya "#" atau target tidak ada, biarkan saja
+            if (targetId === "#") return;
+
             const targetElement = document.querySelector(targetId);
+            
             if (targetElement) {
+                e.preventDefault(); // Stop loncat kaget
+                
+                // Hitung posisi
+                const offset = -10; // Jarak aman dari atas (tinggi navbar)
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - offset;
+
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: offsetPosition,
                     behavior: 'smooth'
                 });
             }
@@ -252,7 +285,34 @@ document.addEventListener('DOMContentLoaded', () => {
         // Jalankan pertama kali saat web dibuka
         updateSeriesDisplay();
     }
-    
+    // ========================================================
+    // 3D. SLIDER PORTOFOLIO FEED INSTAGRAM
+    // ========================================================
+    const igTrack = document.getElementById('igTrack');
+    const btnIgNext = document.getElementById('btnIgNext');
+    const btnIgPrev = document.getElementById('btnIgPrev');
+
+    if (igTrack && btnIgNext && btnIgPrev) {
+        const igGroups = document.querySelectorAll('#igTrack .ig-slide-group');
+        const totalIgGroups = igGroups.length;
+        let currentIgIndex = 0;
+
+        function updateIgSlider() {
+            igTrack.style.transform = `translate3d(-${currentIgIndex * 100}%, 0, 0)`;
+        }
+
+        btnIgNext.addEventListener('click', () => {
+            currentIgIndex = currentIgIndex < totalIgGroups - 1 ? currentIgIndex + 1 : 0;
+            updateIgSlider();
+        });
+
+        btnIgPrev.addEventListener('click', () => {
+            currentIgIndex = currentIgIndex > 0 ? currentIgIndex - 1 : totalIgGroups - 1;
+            updateIgSlider();
+        });
+
+        updateIgSlider();
+    }
 // ========================================================
     // 4. CAROUSEL KONTEN KREATOR (GESER MANUAL & SENSOR PLAY)
     // ========================================================
@@ -390,95 +450,320 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => updateCcSlider(false));
     updateCcSlider(false); // Inisiasi awal
-    // ========================================================
-    // 5. SLIDER INSTAGRAM FEED (CONTENT CREATOR)
-    // ========================================================
-    const igTrack = document.getElementById('igTrack');
-    const btnIgNext = document.getElementById('btnIgNext');
-    const btnIgPrev = document.getElementById('btnIgPrev');
 
-    if (igTrack && btnIgNext && btnIgPrev) {
-        const igSlideGroups = document.querySelectorAll('#igTrack .ig-slide-group');
-        const totalIgGroups = igSlideGroups.length;
-        let currentIgIndex = 0;
+// ========================================================
+// 5. SISTEM YOUTUBE API (SHORT MOVIE & DOKUMENTASI)
+// ========================================================
+    var ytPlayer, playerDoc; // Variabel untuk kedua player
 
-        function updateIgSlider() {
-            igTrack.style.transform = `translate3d(-${currentIgIndex * 100}%, 0, 0)`;
+    function onYouTubeIframeAPIReady() {
+        // Player 1: Short Movie
+        ytPlayer = new YT.Player('youtube-player', {
+            videoId: '6OKbHpT1HII',
+            playerVars: { 'autoplay': 1, 'controls': 0, 'mute': 1, 'loop': 1, 'playlist': '6OKbHpT1HII', 'modestbranding': 1, 'rel': 0 },
+            events: { 'onReady': (e) => setupYoutubeSensor(ytPlayer, 'movieMuteBtn', 'short-movie') }
+        });
+
+    // Player 2: Video Dokumentasi
+    playerDoc = new YT.Player('yt-player-doc', {
+        videoId: 'HDerjZDGSvY',
+        playerVars: {
+            'autoplay': 0,
+            'controls': 0,      // ← sembunyikan UI YouTube
+            'mute': 1,
+            'loop': 1,
+            'playlist': 'HDerjZDGSvY',
+            'modestbranding': 1,
+            'rel': 0,
+            'showinfo': 0
+        },
+        events: {
+            'onReady': (e) => setupYoutubeSensor(playerDoc, 'mute-btn-doc', 'video-dokumentasi')
         }
-
-        btnIgNext.addEventListener('click', () => {
-            currentIgIndex = currentIgIndex < totalIgGroups - 1 ? currentIgIndex + 1 : 0;
-            updateIgSlider();
-        });
-        
-        btnIgPrev.addEventListener('click', () => {
-            currentIgIndex = currentIgIndex > 0 ? currentIgIndex - 1 : totalIgGroups - 1;
-            updateIgSlider();
-        });
+    });
     }
 
+    // FUNGSI SENSOR OTOMATIS (Play saat scroll & Mute Button)
+    function setupYoutubeSensor(playerInstance, btnId, sectionId) {
+        const btnMute = document.getElementById(btnId);
+        const section = document.getElementById(sectionId);
 
-// ... (Kode Mbak yang lain di atas) ...
+        // 1. Logika Tombol Mute
+        if (btnMute) {
+            btnMute.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (playerInstance.isMuted()) {
+                    playerInstance.unMute();
+                    btnMute.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                } else {
+                    playerInstance.mute();
+                    btnMute.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                }
+            });
+        }
 
-}); // <--- INI ADALAH PENUTUP DOMContentLoaded. 
+        // 2. Logika Auto Play/Pause saat Scroll
+        if (section) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        playerInstance.playVideo();
+                    } else {
+                        playerInstance.pauseVideo();
+                    }
+                });
+            }, { threshold: 0.3 });
+            observer.observe(section);
+        }
+    }
+    /* ==================================
+    6. SLIDER VIDEO IKLAN & PROMOSI (CENTER & AUTOPLAY)
+    ==================================*/
 
-// ========================================================
-// 6. REMOTE CONTROL YOUTUBE API & TOMBOL MUTE
-// (KODE INI WAJIB DI LUAR / DI BAWAH PENUTUP DI ATAS)
-// ========================================================
-// Pakai cara aman untuk memanggil script YouTube
+/* ==================================
+   SLIDER VIDEO IKLAN (SMART AUTO-PLAY, WARM UP, MUTE & DYNAMIC CAPTION)
+   ================================== */
+    const trackIklan = document.getElementById('iklanTrack');
+    const btnIklanPrev = document.getElementById('btnIklanPrev');
+    const btnIklanNext = document.getElementById('btnIklanNext');
+    const iklanSection = document.getElementById('video-iklan'); 
+    const iklanCaption = document.getElementById('iklanCaption'); // Ambil elemen judul
+
+    if (trackIklan && btnIklanPrev && btnIklanNext) {
+        let iklanIndex = 0;
+        const iklanSlides = Array.from(trackIklan.querySelectorAll('.iklan-carousel-slide'));
+        const total = iklanSlides.length;
+        let isIklanVisible = false; 
+        
+        function updateIklanSlider() {
+            iklanSlides.forEach((slide, i) => {
+                let offset = i - iklanIndex;
+                if (offset === total - 1) offset = -1;
+                if (offset === -(total - 1)) offset = 1;
+
+                const iframe = slide.querySelector('iframe');
+                const videoTag = slide.querySelector('video'); 
+                const muteBtnIcon = slide.querySelector('.mute-btn-iklan i');
+
+                if (muteBtnIcon) {
+                    muteBtnIcon.classList.remove('fa-volume-high');
+                    muteBtnIcon.classList.add('fa-volume-xmark');
+                }
+                
+                const isLandscape = slide.querySelector('.css-iphone-landscape') !== null;
+                const scaleSide = isLandscape ? 0.85 : 0.75; 
+                const jarakKiri = isLandscape ? 'calc(-50% - 290px)' : 'calc(-50% - 320px)';
+                const jarakKanan = isLandscape ? 'calc(-50% + 290px)' : 'calc(-50% + 320px)';
+
+                // 1. POSISI TENGAH (FOKUS UTAMA)
+                if (offset === 0) {
+                    slide.style.transform = 'translate(-50%, -50%) scale(1)';
+                    slide.style.opacity = '1';
+                    slide.style.zIndex = '3';
+                    slide.style.pointerEvents = 'auto';
+                    
+                    // --- KODE GANTI JUDUL DINAMIS ---
+                    if (iklanCaption) {
+                        iklanCaption.style.opacity = 0; // Pudar dulu
+                        setTimeout(() => {
+                            iklanCaption.innerText = slide.getAttribute('data-caption') || '';
+                            iklanCaption.style.opacity = 1; // Muncul lagi dengan teks baru
+                        }, 300);
+                    }
+                    // ---------------------------------
+
+                    if(iframe && iframe.src.includes('youtube.com')) {
+                        let baseSrc = iframe.src.split('?')[0]; 
+                        if (!iframe.src.includes('autoplay=1')) {
+                            iframe.src = baseSrc + '?enablejsapi=1&controls=0&modestbranding=1&rel=0&playsinline=1&mute=1&autoplay=1'; 
+                        }
+                    }
+
+                    if (isIklanVisible) {
+                        if(iframe) {
+                            iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                        }
+                        if(videoTag) {
+                            videoTag.muted = true;
+                            videoTag.play().catch(e => console.log("Autoplay dicegah browser", e));
+                        }
+                    } else {
+                        if(iframe) iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                        if(videoTag) videoTag.pause();
+                    }
+                } 
+                // 2. POSISI SAMPING & BELAKANG
+                else {
+                    let geserX = '-50%';
+                    let opacityLevel = '0';
+                    
+                    if (offset === -1) { geserX = jarakKiri; opacityLevel = '0.5'; }
+                    else if (offset === 1) { geserX = jarakKanan; opacityLevel = '0.5'; }
+                    
+                    slide.style.transform = `translate(${geserX}, -50%) scale(${scaleSide})`;
+                    slide.style.opacity = opacityLevel; 
+                    slide.style.zIndex = offset === -1 || offset === 1 ? '2' : '1';
+                    slide.style.pointerEvents = 'none';
+                    
+                    if(iframe) iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                    if(videoTag) videoTag.pause();
+                }
+            });
+        }
+
+        function pauseAllIklanVideos() {
+            iklanSlides.forEach(slide => {
+                const iframe = slide.querySelector('iframe');
+                const videoTag = slide.querySelector('video');
+                if(iframe) iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                if(videoTag) videoTag.pause();
+            });
+        }
+
+        if (iklanSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        isIklanVisible = true;
+                        updateIklanSlider(); 
+                    } else {
+                        isIklanVisible = false;
+                        pauseAllIklanVideos();
+                    }
+                });
+            }, { threshold: 0.4 }); 
+            observer.observe(iklanSection);
+        }
+
+        // TRIK SAKTI: WARM UP YOUTUBE
+        function warmUpYoutube() {
+            iklanSlides.forEach((slide, i) => {
+                const iframe = slide.querySelector('iframe');
+                if(iframe) {
+                    iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                    iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                    
+                    setTimeout(() => {
+                        if (i !== iklanIndex || !isIklanVisible) {
+                            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                        }
+                    }, 800);
+                }
+            });
+        }
+
+        btnIklanNext.addEventListener('click', () => { iklanIndex = (iklanIndex + 1) % total; updateIklanSlider(); });
+        btnIklanPrev.addEventListener('click', () => { iklanIndex = (iklanIndex - 1 + total) % total; updateIklanSlider(); });
+        
+        // Logika Tombol Mute Custom
+        document.querySelectorAll('.mute-btn-iklan').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation(); 
+                const slide = this.closest('.iklan-carousel-slide');
+                const iframe = slide.querySelector('iframe');
+                const videoTag = slide.querySelector('video');
+                const icon = this.querySelector('i');
+                const isMuted = icon.classList.contains('fa-volume-xmark');
+
+                if (isMuted) {
+                    icon.classList.remove('fa-volume-xmark');
+                    icon.classList.add('fa-volume-high');
+                    if (iframe) iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+                    if (videoTag) videoTag.muted = false;
+                } else {
+                    icon.classList.remove('fa-volume-high');
+                    icon.classList.add('fa-volume-xmark');
+                    if (iframe) iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                    if (videoTag) videoTag.muted = true;
+                }
+            });
+        });
+
+        setTimeout(() => {
+            updateIklanSlider();
+            warmUpYoutube();
+        }, 1000); 
+    }
+
+}); 
+
+// script YouTube
 var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 document.head.appendChild(tag); // <--- Saya perbaiki bagian ini biar lebih aman
-
-var ytPlayer;
+var ytPlayer, playerDoc;
 
 function onYouTubeIframeAPIReady() {
+
+    // Player 1: Short Movie
     ytPlayer = new YT.Player('youtube-player', {
-        videoId: '6OKbHpT1HII', 
-        playerVars: {
-            'autoplay': 1,
-            'controls': 0, 
-            'mute': 1,     
-            'loop': 1,
-            'playlist': '6OKbHpT1HII', 
-            'modestbranding': 1,
-            'rel': 0
-        },
+        videoId: '6OKbHpT1HII',
+        playerVars: { 'autoplay': 1, 'controls': 0, 'mute': 1, 'loop': 1, 'playlist': '6OKbHpT1HII', 'modestbranding': 1, 'rel': 0 },
+        events: { 'onReady': onPlayerReady }
+    });
+
+    // Player 2: Video Dokumentasi
+    playerDoc = new YT.Player('yt-player-doc', {
+        videoId: 'HDerjZDGSvY',
+        playerVars: { 'autoplay': 0, 'controls': 0, 'mute': 1, 'loop': 1, 'playlist': 'HDerjZDGSvY', 'modestbranding': 1, 'rel': 0, 'showinfo': 0 },
         events: {
-            'onReady': onPlayerReady
+            'onReady': function() {
+                // Tombol Mute
+                const btnMuteDoc = document.getElementById('mute-btn-doc');
+                if (btnMuteDoc) {
+                    btnMuteDoc.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (playerDoc.isMuted()) {
+                            playerDoc.unMute();
+                            btnMuteDoc.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                        } else {
+                            playerDoc.mute();
+                            btnMuteDoc.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                        }
+                    });
+                }
+                // Auto Play/Pause saat Scroll
+                const sectionDoc = document.getElementById('video-dokumentasi');
+                if (sectionDoc) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                playerDoc.playVideo();
+                            } else {
+                                playerDoc.pauseVideo();
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observer.observe(sectionDoc);
+                }
+            }
         }
     });
 }
 
 function onPlayerReady(event) {
-    // 1. Hubungkan Tombol Mute
     const btnMute = document.getElementById('movieMuteBtn');
     if (btnMute) {
         btnMute.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-
             if (ytPlayer.isMuted()) {
-                ytPlayer.unMute(); 
+                ytPlayer.unMute();
                 btnMute.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
             } else {
-                ytPlayer.mute();   
+                ytPlayer.mute();
                 btnMute.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
             }
         });
     }
-
-    // 2. Sensor Pintar
     const shortMovieSection = document.getElementById('short-movie');
     if (shortMovieSection) {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    ytPlayer.playVideo();
-                } else {
-                    ytPlayer.pauseVideo();
-                }
+                if (entry.isIntersecting) { ytPlayer.playVideo(); }
+                else { ytPlayer.pauseVideo(); }
             });
         }, { threshold: 0.3 });
         observer.observe(shortMovieSection);

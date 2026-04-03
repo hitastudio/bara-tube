@@ -117,3 +117,23 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCenterFocus();
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('#nav-menu ul li a');
+
+    // 💡 Fungsi Klik Tombol Hamburger
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active'); // Putar garis jadi X
+        navMenu.classList.toggle('active');    // Munculkan menu dari samping
+    });
+
+    // 💡 Tutup menu otomatis kalau salah satu link diklik (biar gak ganggu)
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+});

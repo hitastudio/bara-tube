@@ -11,8 +11,12 @@
    06. SECTION: FOTO PRODUK & FOTO MODEL & DRAMA (Slider & Pricelist)
    07. SECTION: SHORT MOVIE
    08. SECTION: CONTENT CREATOR (Carousel & Pricelist)
-   09. SECTION JASA EDITING FOTO & VIDEO (BARU)
-   10. FOOTER
+   09. SECTION: JASA EDITING FOTO & VIDEO (BARU)
+   10. SECTION: SCRIPTWRITING & FOTO DOKUMENTASI
+   11. SECTION VIDEO IKLAN & PROMOSI
+   12. VIDEO DOKUMENTASI
+   13. SECTION KONTAK 
+   14. FOOTER
    ========================================================================== */
 
 /* ==========================================================================
@@ -174,6 +178,15 @@ body {
 /* ==========================================================================
    02. HEADER & NAVIGATION
    ========================================================================== */
+
+html {
+    scroll-behavior: smooth; /* Biar meluncur halus */
+}
+
+/* Biar pas berhenti, judul section gak nempel banget ke atas (ketutup header) */
+section {
+    scroll-margin-top: 80px; /* Sesuaikan dengan tinggi header Mbak */
+}
 header {
     background-color: var(--bg-hitam);
     padding: 15px 5%;
@@ -214,12 +227,143 @@ nav ul li a {
 nav ul li a:hover { color: var(--accent-yellow); }
 
 /* Header Responsif HP */
-@media (max-width: 768px) {
-    header { padding: 10px 3%; }
-    .btn-back { font-size: 0.7rem; gap: 5px; }
-    nav ul { display: none; }
+/* ==========================================================================
+   TOMBOL HAMBURGER ANIMASI CSS (Sembunyi di Laptop)
+   ========================================================================== */
+.mobile-menu-btn {
+    display: none; 
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 22px; /* Tinggi tombol */
+    position: relative;
+    z-index: 1100; /* Biar tombol tetap di atas saat menu turun */
+    padding: 0;
 }
 
+/* 3 Garis Hamburger */
+.mobile-menu-btn .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-light);
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    transition: all 0.4s ease-in-out; /* 💡 KUNCI ANIMASI MULUS */
+}
+
+/* Posisi Awal Garis (Atas, Tengah, Bawah) */
+.mobile-menu-btn .bar:nth-child(1) { top: 0; }
+.mobile-menu-btn .bar:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.mobile-menu-btn .bar:nth-child(3) { bottom: 0; }
+
+/* 💡 ANIMASI JADI HURUF 'X' SAAT DIKLIK (.active) */
+.mobile-menu-btn.active .bar:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    background-color: var(--accent-yellow); /* Nyala kuning saat jadi X */
+}
+.mobile-menu-btn.active .bar:nth-child(2) {
+    opacity: 0; /* Garis tengah menghilang */
+    transform: translateX(-20px); /* Geser dikit sebelum hilang */
+}
+.mobile-menu-btn.active .bar:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+    background-color: var(--accent-yellow);
+}
+
+/* ==========================================================================
+   RESPONSIF HP: HEADER (SEJAJAR & DROPDOWN)
+   ========================================================================== */
+/* ==========================================================================
+   RESPONSIF HP: HEADER NEMPEL & MENU SIDEBAR KANAN
+   ========================================================================== */
+@media (max-width: 768px) {
+    header { 
+        padding: 15px 5%; 
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center;
+        
+        /* 💡 FIX 1: Balikin jadi STICKY biar selalu nempel di atas pas discroll */
+        position: sticky; 
+        top: 0;
+        z-index: 1000;
+        background-color: var(--bg-hitam); /* Pastikan solid biar konten bawah gak nembus */
+    }
+    
+    .btn-back { 
+        font-size: 0.85rem; 
+        width: auto; 
+    }
+    
+    /* Tombol Garis 3 / X */
+    .mobile-menu-btn { 
+        display: block; 
+        z-index: 1100; /* KUNCI: Harus lebih tinggi dari menu biar tombol X tetap bisa diklik */
+        position: relative;
+    }
+
+    /* 💡 FIX 2: SULAP JADI MENU SAMPING (SIDEBAR) */
+    nav#main-nav {
+        position: fixed; /* Mengambang terlepas dari halaman */
+        top: 0;
+        right: -100%; /* Sembunyi jauh di luar layar sebelah kanan */
+        width: 250px; /* Lebar menu sampingnya */
+        height: 100vh; /* Tinggi full mentok atas-bawah */
+        background-color: #111111; /* Warna latar gelap elegan */
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        
+        /* Matikan sistem max-height yang lama */
+        max-height: none; 
+        overflow-y: auto;
+        
+        /* Animasi meluncur mulus dari kanan ke kiri */
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -15px 0 30px rgba(0,0,0,0.8);
+        z-index: 1050; /* Posisi di bawah tombol X */
+        
+        padding-top: 80px; /* Kasih ruang kosong di atas biar gak ketutupan tombol X */
+    }
+
+    /* Saat tombol diklik, tarik menu ke dalam layar */
+    nav#main-nav.active { 
+        right: 0; 
+    }
+
+    nav#main-nav ul { 
+        display: flex; 
+        flex-direction: column;
+        padding: 0 20px;
+        gap: 10px;
+        text-align: left; /* Rata kiri biar rapi ala sidebar */
+    }
+    
+    /* Desain teks menu di dalam sidebar */
+    nav#main-nav ul li a {
+        display: block;
+        padding: 15px 10px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        background: transparent;
+        border: none;
+        border-bottom: 1px dashed rgba(255,255,255,0.1);
+        border-radius: 0;
+        color: var(--text-light);
+        transition: color 0.3s, padding-left 0.3s;
+    }
+
+    /* Efek pas menu disentuh */
+    nav#main-nav ul li a:hover {
+        background-color: transparent;
+        color: var(--accent-yellow);
+        padding-left: 20px; /* Teksnya geser dikit ke kanan pas disentuh, cakep! */
+    }
+}
 /* ==========================================================================
    03. HERO SECTION (BERANDA)
    ========================================================================== */
@@ -669,6 +813,49 @@ nav ul li a:hover { color: var(--accent-yellow); }
     50% { translate: 8px 0; filter: drop-shadow(0 0 10px rgba(255, 176, 0, 0.5)); }
 }
 
+/* ==================================
+   STYLING KHUSUS KOTAK INFO SERIES
+   ================================== */
+.info-series-card {
+    margin-top: 10px; /* Jarak antara poster dan kotak info di Desktop */
+    padding: 20px 25px; /* Sedikit lebih tipis dari kotak harga */
+}
+
+.info-series-card h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    padding-bottom: 10px;
+}
+
+/* RESPONSIVE HP: BIKIN KOTAK INFO SERIES LEBIH KECIL */
+@media (max-width: 768px) {
+    .info-series-card {
+        padding: 15px !important; /* Padding dikecilkan */
+        margin-top: 0px; 
+    }
+    
+    .info-series-card h4 {
+        font-size: 1rem !important; /* Judul "INFO SERIES" dikecilkan */
+        margin-bottom: 8px !important;
+        padding-bottom: 8px !important;
+    }
+    
+    .info-series-card h5#seriesTitleDisplay {
+        font-size: 1rem !important; /* Judul Film dikecilkan */
+        margin-bottom: 8px !important;
+    }
+    
+    /* Tombol Episode dirapatkan dan dikecilkan di HP */
+    .episode-selector {
+        gap: 6px;
+    }
+    
+    .ep-btn {
+        padding: 5px 12px;
+        font-size: 0.75rem;
+    }
+}
+
 /*TOMBOL PILIH EPISODE (SECTION SERIES)*/
 .episode-selector {
     display: flex;
@@ -888,271 +1075,258 @@ nav ul li a:hover { color: var(--accent-yellow); }
         right: -60px !important;
     }
 }
-
 /* ==========================================================================
-   07. SECTION: SHORT MOVIE
+   07. SECTION: SHORT MOVIE - PREMIUM FULL EDITION
    ========================================================================== */
 .short-movie-section {
-    background-color: transparent; 
-    padding: 80px 0; 
-}
-
-.short-movie-section .section-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
-
-.short-movie-section .section-title {
-    text-align: center;
-    color: var(--accent-yellow); 
-    margin-bottom: 40px;
-    font-size: 2.5rem;
-    text-transform: uppercase;
+    padding: 100px 0;
+    background-color: transparent;
 }
 
 .short-movie-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr; 
-    gap: 30px;
+    grid-template-columns: 350px 1fr; /* Kiri poster, kanan video */
+    gap: 40px;
+    align-items: center; /* Video sejajar tengah dengan poster */
+    margin-bottom: 60px;
 }
 
-.poster-column {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
+/* --- STYLING POSTER & INFO --- */
 .poster-wrapper {
-    position: relative;
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s ease;
 }
-
-.poster-wrapper:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-yellow);
-}
-
-.poster-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.gold-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: var(--accent-yellow);
-    color: #000;
-    padding: 5px 12px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    border-radius: 5px;
-    text-transform: uppercase;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
+.poster-wrapper:hover { transform: translateY(-10px); }
+.poster-image { width: 100%; height: auto; display: block; }
 
 .movie-info-box {
-    background: rgba(255, 255, 255, 0.03); 
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 20px;
     border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
     text-align: center;
 }
+.movie-title { color: var(--accent-yellow); font-size: 1.2rem; font-weight: 900; margin-bottom: 8px; }
+.movie-desc-short { color: #ccc; font-size: 0.85rem; line-height: 1.5; }
 
-.movie-title {
-    font-size: 1.1rem;
-    color: var(--accent-yellow);
-    margin-bottom: 8px;
-    font-weight: 800;
-}
-
-.movie-desc-short {
-    font-size: 0.8rem;
-    color: #ccc;
-    line-height: 1.4;
-}
-
-.content-column {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
+/* --- VIDEO PLAYER WRAPPER --- */
 .video-player-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* Rasio 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background-color: #000; /* Warna dasar hitam jika video loading */
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 176, 0, 0.3);
 }
+.youtube-iframe-player { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; pointer-events: none; }
+.video-click-area { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; }
+/* ==========================================================================
+   SECTION: SHORT MOVIE - GOLD PREMIUM EDITION (SAME AS INFOGRAFIS)
+   ========================================================================== */
 
-/* Link yang membungkus video */
-.video-player-wrapper .video-click-area {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    display: block;
-    cursor: pointer;
-}
-
-/* Iframe YouTube */
-.youtube-iframe-player {
+.sm-pricing-section {
     width: 100%;
-    height: 100%;
-    border: none;
-    /* KUNCI PENTING: pointer-events none membuat iframe tidak bisa diklik, 
-       sehingga kliknya "nembus" ke link <a> yang menuju YouTube aslinya! */
-    pointer-events: none; 
-}
-/* ==================================
-   TOMBOL MUTE / UNMUTE YOUTUBE
-   ================================== */
-.youtube-iframe-player {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    border: none;
-    pointer-events: none; /* Biar kursor tembus ke tombol & link */
+    margin-top: 80px;
+    padding-top: 50px;
 }
 
-.movie-mute-btn {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-}
-
-.movie-mute-btn:hover {
-    background-color: var(--accent-yellow);
-    color: #111;
-    border-color: var(--accent-yellow);
-    transform: scale(1.1);
-}   
-/* Overlay Ikon Play YouTube (Muncul saat di-hover) */
-.play-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Efek gelap tipis */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0; /* Sembunyikan secara default */
-    transition: opacity 0.3s ease;
-}
-
-.video-player-wrapper:hover .play-overlay {
-    opacity: 1; /* Munculkan saat kursor masuk */
-}
-
-.play-overlay i {
-    font-size: 4rem;
-    color: #ff0000; /* Merah YouTube */
-    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.8));
-    margin-bottom: 10px;
-    transition: transform 0.3s ease;
-}
-
-.play-overlay span {
-    color: #fff;
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-}
-
-.video-player-wrapper:hover .play-overlay i {
-    transform: scale(1.1); /* Efek membesar pada ikon YouTube */
-}
-.bottom-row {
+.short-movie-pricing-row {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
     align-items: stretch;
 }
 
-.movie-info-box-large, .price-list-box {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 25px;
+/* --- KARTU EMAS FULL (Identik Infografis) --- */
+.sm-price-card {
+    /* Gradasi Emas Mewah */
+    background: linear-gradient(135deg, #555555 0%, #2e2e2e 25%, #2b2b2b 50%, #1f1e1e 75%, #333333 100%);
+    border: 1px solid #b8860b;
     border-radius: 15px;
-}
-
-.movie-title-large, .price-list-header h4 {
-    font-size: 1.2rem;
-    color: var(--accent-yellow);
-    margin-bottom: 15px;
-    font-weight: 800;
-}
-
-.movie-desc-long {
-    font-size: 0.85rem;
-    color: #ccc;
-    line-height: 1.6;
-}
-
-.price-list-header {
+    padding: 40px 20px 25px 20px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px dashed rgba(255,255,255,0.1);
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4), inset 0 0 10px rgba(255,255,255,0.4);
+    transition: all 0.4s ease;
+    overflow: visible; /* Biar badge pita gak kepotong */
+}
+
+.sm-price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+}
+
+/* Efek kartu tengah tetap menonjol */
+.sm-price-card.highlight {
+    transform: scale(1.05);
+    z-index: 5;
+    border: 2px solid #fff;
+}
+
+/* --- HEADER & HARGA (Warna Putih/Gelap High Contrast) --- */
+.sm-card-header {
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     padding-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-.price-list-header h4 { margin-bottom: 0; }
-
-.price-list { list-style: none; padding: 0; }
-
-.price-list li {
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-    color: #eee;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.sm-card-header h4 {
+    font-size: 1.1rem;
+    color: #000; /* Judul Paket Hitam biar tegas di atas emas */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
-.price-item {
+.sm-price {
+    font-size: 2.8rem;
     font-weight: 900;
-    color: var(--accent-yellow);
-    margin-left: auto; 
-    font-size: 1rem;
+    color: #fff; /* Angka Putih */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    line-height: 1;
 }
 
-.gold-icon {
-    color: var(--accent-yellow);
-    width: 20px;
+.sm-price span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #eee;
+}
+
+.sm-duration {
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 700;
+    margin-top: 5px;
+    background: rgba(255,255,255,0.3);
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+/* --- FITUR LIST (Ikon Merah Maroon) --- */
+.sm-features { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+
+.sm-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #d9ff00; /* Teks Hitam */
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+/* Ikon Ceklist dkk jadi Merah (Biar kontras sama Emas) */
+.sm-features li i { 
+    color: #ffff00; 
+    margin-top: 3px;
+    font-size: 0.9rem;
+    width: 18px;
     text-align: center;
 }
 
-/* ==================================
-   TOMBOL MUTE / UNMUTE BARA MOVIE
-   ================================== */
+/* --- SUB-LIST ALAT (GRID 2 KOLOM) --- */
+.sm-sub-list {
+    column-count: 2;
+    column-gap: 10px;
+    margin-top: 8px;
+    padding-left: 0;
+    list-style: none;   
+    counter-reset: item-counter;
+}
+
+.sm-sub-list li {
+    display: flex;
+    font-size: 0.75rem !important;
+    color: #b7a819 !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+    break-inside: avoid;
+}
+
+.sm-sub-list li::before {
+    counter-increment: item-counter;
+    content: counter(item-counter) ".";
+    font-weight: 900;
+    margin-right: 4px;
+    color: #b7a819; /* Angka List Merah */
+}
+
+/* --- BADGE PITA MERAH (Red Velvet) --- */
+.pkg-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, #b30000, #800000);
+    color: #ffd700;
+    padding: 6px 20px;
+    border-radius: 5px;
+    font-weight: 900;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    border: 1px solid #ffd700;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+/* Bonus Item Glowing Merah */
+.bonus-item {
+    margin-top: 15px !important;
+    padding: 8px !important;
+    background: rgba(146, 179, 0, 0.1);
+    border-radius: 8px;
+    border: 1px dashed #ddff00 !important;
+    color: #fff700 !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* --- TOMBOL PESAN (Hitam Kuning Glow) --- */
+.global-btn-order {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: #111;
+    color: #ffd700;
+    padding: 18px 45px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.global-btn-order:hover {
+    background: #383838;
+    color: #111;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+.sm-pricing-section {
+    width: 100%;
+    margin-top: -70px;    /* 💡 DIKECILKAN: Biar makin nempel ke atas */
+}
+
 .movie-mute-btn {
     position: absolute;
     bottom: 15px;
@@ -1165,28 +1339,119 @@ nav ul li a:hover { color: var(--accent-yellow); }
     color: #ffffff;
     font-size: 1.2rem;
     cursor: pointer;
-    z-index: 20; /* Harus lebih tinggi dari link YouTube biar bisa diklik */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Biar pas ganti warna/ikon gak kaget */
     backdrop-filter: blur(5px);
+    z-index: 20;
 }
 
 .movie-mute-btn:hover {
-    background-color: var(--accent-yellow);
-    color: #111;
-    border-color: var(--accent-yellow);
     transform: scale(1.1);
+    border-color: var(--accent-yellow);
 }
-
-/* Short Movie Responsif HP */
+/* --- RESPONSIVE HP: PAKSA 3 KOLOM SEJAJAR --- */
 @media (max-width: 768px) {
-    .short-movie-layout { grid-template-columns: 1fr; }
-    .poster-wrapper { max-width: 250px; margin: 0 auto; }
-    .bottom-row { grid-template-columns: 1fr; }
-}
+    .short-movie-layout { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+    
+    .poster-column { 
+        max-width: 250px; 
+        margin: 0 auto; 
+    }
 
+    /* 💡 KUNCI 1: Paksa 3 kolom berjejer */
+    .short-movie-pricing-row {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 5px !important; /* Jarak antar kotak mepet banget biar muat */
+        padding: 0 5px;
+    }
+
+    /* 💡 KUNCI 2: Kecilin padding dalam kotak */
+    .sm-price-card {
+        padding: 15px 5px 10px 5px !important;
+        border-radius: 8px;
+    }
+
+    .sm-price-card.highlight { transform: scale(1); }
+
+    /* 💡 KUNCI 3: Kecilin semua ukuran teks (Mikro Mode) */
+    .sm-card-header {
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+
+    .sm-card-header h4 {
+        font-size: 0.55rem !important; /* Judul paket jadi kecil banget */
+        letter-spacing: 0;
+    }
+
+    .sm-price {
+        font-size: 1.1rem !important; /* Angka harga dikecilkan */
+    }
+
+    .sm-price span {
+        font-size: 0.5rem !important;
+    }
+
+    .sm-duration {
+        font-size: 0.45rem !important;
+        padding: 1px 5px;
+    }
+
+    /* List Fitur */
+    .sm-features li {
+        font-size: 0.45rem !important; /* Teks fitur jadi mikro */
+        gap: 4px;
+        margin-bottom: 5px;
+        line-height: 1.1;
+    }
+
+    .sm-features li i {
+        font-size: 0.5rem !important; /* Ikon ceklist kecil */
+        width: 10px;
+    }
+
+    /* 💡 KUNCI 4: Alat shooting jadi 1 kolom saja per kotak */
+    .sm-sub-list {
+        column-count: 1 !important; 
+        margin-top: 5px;
+    }
+
+    .sm-sub-list li {
+        font-size: 0.45rem !important;
+    }
+
+    /* Badge & Bonus */
+    .pkg-badge {
+        font-size: 0.4rem !important;
+        padding: 3px 8px;
+        top: -10px;
+    }
+
+    .bonus-item {
+        margin-top: 8px !important;
+        padding: 4px !important;
+        font-size: 0.45rem !important;
+    }
+
+/* --- TOMBOL PESAN HP (TETAP PENDEK & DI TENGAH) --- */
+    .global-btn-order { 
+        width: auto !important; /* 💡 KUNCI: Biar gak melar selebar layar */
+        padding: 10px 25px !important; /* Dikecilkan dikit tapi tetep enak di-tap */
+        font-size: 0.75rem !important; 
+        display: inline-flex !important; /* Membungkus isi tombol saja */
+        margin: 0 auto; /* Tetap berada di tengah */
+        gap: 8px !important;
+    }
+
+    .global-btn-order i {
+        font-size: 1rem !important; /* Ikon WA-nya ikutan nge-kecil biar seragam */
+    }
+}
 
 /* ==========================================================================
    08. SECTION: CONTENT CREATOR (Carousel & Pricelist)
@@ -1809,9 +2074,17 @@ video::-webkit-media-controls { display: none !important; }
     /* Taruh tombol panah mepet ke pinggir layar HP */
     .ig-prev-btn { left: -40px !important; }
     .ig-next-btn { right: -40px !important; }
+
+    .cc-slide-instruction {
+        margin-top: 0 !important;
+        margin-bottom: 15px !important;
+        font-size: 0.8rem !important;
+    }
+
+    #content-creator {
+        padding: 50px 0 30px 0 !important;
+    }
 }
-
-
 
 /* ==========================================================================
    09. SECTION JASA EDITING FOTO & VIDEO (BARU)
@@ -1906,9 +2179,19 @@ video::-webkit-media-controls { display: none !important; }
 }
 
 /* Area Teks Rata Kiri */
+/* 1. Pastikan kotak teks jadi flexbox dan mengisi seluruh ruang kosong */
 .editing-card .card-text-box {
     padding: 20px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* KUNCI 1: Paksa kotak ini merenggang sampai mentok bawah */
+}
+
+/* 2. Dorong tombolnya ke dasar kotak */
+.editing-card .card-text-box .btn-pesan {
+    margin-top: auto; /* KUNCI 2: Otomatis menekan tombol mentok ke garis bawah */
+    /* width: 100%;  <-- Hapus tanda /* di samping kiri kanan ini kalau mau tombolnya panjang full */
 }
 
 .editing-card .card-text-box h3 {
@@ -1924,49 +2207,1108 @@ video::-webkit-media-controls { display: none !important; }
     line-height: 1.5;
     margin-bottom: 15px;
 }
-
-/* Tombol (Hanya di Baris Paket) */
-.btn-small {
+.btn-pesan {
     padding: 8px 20px;
     font-size: 0.8rem;
     font-weight: 700;
     display: inline-block;
 }
 
-/* Penyesuaian Mobile */
-@media (max-width: 768px) {
-    .packages-group-wrapper { padding: 40px 10px; }
-    .editing-card { max-width: 100%; }
-}
-/* ==========================================================================
-   10. FOOTER & GALERI DUMMY
-   ========================================================================== */
-.dummy-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    max-width: 900px;
-    margin: 0 auto;
+.card-text-box .btn-pesan {
+    margin-top: 0; /* Pastikan tombol tidak punya jarak tambahan di atasnya */
+    /* Kalau masih kurang ke atas, Mbak bisa pakai angka minus, contoh: margin-top: -5px; */
 }
 
-.gallery-item {
-    background-color: #444;
-    height: 200px;
+.editing-sub-title {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.editing-sub-title i {
+    margin-right: 10px;
+}
+
+.editing-sub-title span {
+    color: var(--accent-yellow);
+}
+
+.editing-card .card-text-box h3 {
+    text-transform: uppercase; /* Ini yang bikin hurufnya jadi BESAR SEMUA */
+    letter-spacing: 1px; /* Tambahan jarak antar huruf sedikit biar makin elegan */
+}
+.price-highlight {
+    color: #15ff00; /* Warna hijau menyala */
+    font-size: 0.9rem; /* Ukuran teks dibesarkan */
+    font-weight: 900; /* Ditebalkan maksimal */
+    display: inline-block; /* Biar tetap sebaris dengan teks sebelahnya */
+    margin-bottom: 5px; /* Jarak sedikit ke bawah */
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 5px rgba(21, 255, 0, 0.3); /* Sedikit efek glowing (opsional) */
+}
+
+/* ==========================================================================
+   RESPONSIVE HP: JASA EDITING (PAKSA 3 KOLOM SUPER COMPACT)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .packages-group-wrapper { 
+        padding: 25px 10px; 
+    }
+    
+    .editing-sub-title {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+
+    /* 1. Jarak antar kotak dirapatkan maksimal */
+    .editing-services-grid,
+    .editing-packages-grid {
+        gap: 6px; 
+    }
+
+    /* 2. KUNCI: Paksa ukuran jadi ~31% agar muat 3 kotak berdampingan */
+    .editing-card { 
+        flex: 1 1 31%; 
+        max-width: 32%; 
+        border-radius: 10px; /* Ujung kotak sedikit dikurangi lengkungannya */
+    }
+
+    /* 3. Teks dan padding ditekan habis-habisan biar muat */
+    .editing-card .card-text-box {
+        padding: 8px 6px;
+    }
+
+    .editing-card .card-text-box h3 {
+        font-size: 0.55rem; /* Judul super imut */
+        margin-bottom: 4px;
+        letter-spacing: 0;
+    }
+
+    .editing-card .card-text-box p {
+        font-size: 0.5rem; /* Deskripsi sangat kecil */
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+
+    .price-highlight {
+        font-size: 0.6rem; /* Harga disesuaikan proporsinya */
+        margin-bottom: 2px;
+    }
+
+    /* 4. Tombol dibikin super mini */
+    .btn-pesan {
+        padding: 5px 8px;
+        font-size: 0.5rem;
+        border-radius: 4px;
+    }
+    
+    /* 5. Khusus untuk judul "PAKET" */
+    .package-group-title {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+}
+
+/* ==================================
+   10. SECTION: SCRIPTWRITING & FOTO DOKUMENTASI
+   ================================== */
+.script-category-title {
+    margin-bottom: 15px;
+    color: var(--accent-yellow);
+    font-size: 1.1rem;
+}
+
+.script-price-list {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.script-price-item {
+    margin-bottom: 10px;
+}
+
+.script-note {
+    color: #aaaaaa;
+}
+
+.script-price-amount {
+    color: #15ff00; /* Warna Hijau seperti pesanan Mbak */
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.script-divider {
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+    margin: 15px 0;
+}
+
+.script-fac-title {
+    margin-bottom: 8px;
+}
+
+.script-facilities-list {
+    font-size: 0.85rem;
+    color: #cccccc;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.script-check-icon {
+    color: var(--accent-yellow);
+    width: 20px;
+}
+
+.script-btn {
+    margin-top: 20px;
+}
+
+
+.single-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.single-product-image {
+    width: 100%;
+    max-width: 490px; /* Ini KUNCINYA: Lebar maksimal foto dibatasi biar nggak raksasa */
+    height: auto;
+    display: block;
+    border-radius: 15px; /* Bikin ujung foto jadi membulat/smooth */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); /* Kasih efek bayangan elegan */
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.single-product-image:hover {
+    transform: translateY(-10px); /* Efek sedikit melayang saat kursor di atas foto */
+    border-color: var(--accent-yellow); /* Garis tepi menyala kuning saat dihover */
+}
+
+/* ==========================================================================
+   DAFTAR FASILITAS FOTO (HILANGKAN TITIK PUTIH)
+   ========================================================================== */
+.foto-facilities-list {
+    list-style: none !important; /* Ini mantra penghilang titik putih HTML */
+    padding-left: 0 !important;
+    margin-top: -5px;
+    margin-bottom: 25px;
+}
+
+.foto-facilities-list li {
+    color: #cccccc;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   KOTAK ULTIMATE (LEVEL 4) - VERSI SUPER SLIM & MINIMALIS
+   ========================================================================== */
+.ultimate-package-box {
+    background: linear-gradient(135deg, rgba(255, 204, 0, 0.05) 0%, rgba(20, 20, 20, 1) 100%);
+    border: 1.5px solid var(--accent-yellow, #ffcc00);
+    border-radius: 8px;
+    
+    /* 1. KECILIN LAGI UKURAN KOTAK 👇 */
+    max-width: 490px; 
+    width: 100%;       
+    margin: 8px auto 0 auto; /* Jarak makin nempel ke foto */
+    padding: 8px 12px;       /* Padding sangat tipis */
+    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    box-sizing: border-box; 
+}
+
+/* Garis aksen kuning kiri (dibikin makin tipis) */
+.ultimate-package-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px; 
+    background-color: var(--accent-yellow, #ffcc00);
+}
+
+/* 2. KECILIN LAGI TEKS & HARGA 👇 */
+.ultimate-title {
+    color: var(--accent-yellow, #ffcc00);
+    font-size: 1rem; /* Makin kecil */
+    font-weight: 800;
+    margin: 0; 
+    line-height: 1.2;
+}
+
+.ultimate-duration {
+    color: #888;
+    font-size: 0.7rem; 
+    margin-bottom: 5px;
+}
+
+.ultimate-price {
+    font-size: 1.15rem; /* Harga dibikin lebih ramping */
+    font-weight: 900;
+    color: #00e676; 
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.ultimate-price small {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+/* 3. KECILIN LAGI LIST FASILITAS 👇 */
+.ultimate-features {
+    list-style: none !important; 
+    padding: 0 !important;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* TRIK: Dibagi 2 kolom biar gak manjang ke bawah */
+    gap: 2px 10px;
+}
+
+.ultimate-features li {
+    color: #bbb;
+    font-size: 0.75rem; 
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap; /* Biar teks gak turun baris */
+}
+
+.ultimate-features li i {
+    color: var(--accent-yellow, #ffcc00);
+    font-size: 0.65rem; 
+}
+/* Container pembungkus kartu */
+.foto-packages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Jarak antar kotak */
+    margin-bottom: 15px;
+}
+
+/* Style Kotak Per Level */
+.foto-package-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 12px 15px;
+    border-left: 4px solid var(--accent-yellow, #ffcc00);
+}
+
+.foto-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #555;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.foto-level-name {
+    color: #fff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.foto-level-name small {
+    color: #aaa;
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.foto-level-price {
+    color: #00e676; /* Warna Hijau */
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+/* Hilangkan titik putih fasilitas */
+.foto-facilities-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.foto-facilities-list li {
+    color: #ccc;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.foto-facilities-list li i {
+    color: var(--accent-yellow, #ffcc00);
+    font-size: 0.8rem;
+}
+/* Biar di HP tetep rapi 1 kolom kalo layarnya sempit banget */
+@media (max-width: 480px) {
+    .ultimate-features {
+        grid-template-columns: 1fr;
+    }
+}
+/* RESPONSIVE HP: Biar di HP fotonya lebih pas lagi */
+@media (max-width: 768px) {
+    .single-product-image {
+        max-width: 300px; /* Di HP ukurannya lebih dikecilkan lagi */
+        margin: 0 auto;
+    }
+}
+
+/* ==================================
+   11. SECTION VIDEO IKLAN & PROMOSI
+   ================================== */
+/* 1. Kontainer Utama */
+.iklan-carousel-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
-    color: #888;
+    position: relative;
+    width: 100%;
+    max-width: 1100px; 
+    margin: 0 auto;
+    padding: 40px 0;
+    overflow: hidden;
 }
 
-@media (max-width: 768px) {
-    .dummy-gallery {
-        grid-template-columns: repeat(3, 1fr); 
-        gap: 5px;
+.iklan-carousel-center {
+    width: 100%;
+    max-width: 1100px; /* Lebarkan sedikit biar HP samping punya ruang */
+    height: 650px !important;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible !important; /* KUNCI: Biar HP samping nggak hilang/terpotong */
+}
+
+/* Tambahkan ini juga biar kontainer luarnya nggak bikin scrollbar muncul */
+.iklan-carousel-container {
+    overflow: hidden; 
+    padding: 60px 0;
+}
+
+/* 3. HP BERDIRI (SAMAKAN PERSIS DENGAN CC-CAROUSEL-SLIDE) */
+#video-iklan .css-iphone-mockup.silver-edition {
+    width: 300px !important;   /* UKURAN SAKTI CONTENT CREATOR */
+    height: 600px !important;  /* UKURAN SAKTI CONTENT CREATOR */
+    margin: 0 auto;
+    background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 50%, #cccccc 100%) !important;
+    border-radius: 35px !important;
+    border: 2px solid #b3b3b3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 4. HP MIRING (LANDSCAPE) - SUDAH DI-DIET-KAN BIAR RAMPING */
+#video-iklan .css-iphone-landscape.silver-edition {
+    width: 560px !important;  /* Dikecilkan biar nggak nutupin HP belakang */
+    height: 280px !important; /* Disesuaikan biar proporsional 16:9 */
+    margin: 0 auto;
+    background: linear-gradient(135deg, #e0e0e0 0%, #ffffff 50%, #cccccc 100%) !important;
+    border-radius: 30px !important;
+    border: 2px solid #b3b3b3 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    padding: 8px 5px !important; /* Bezel luar ditipiskan */
+}
+
+/* Bezel Kiri Kanan HP Miring */
+#video-iklan .iphone-bezel-left {
+    width: 25px !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px !important;
+}
+
+#video-iklan .iphone-bezel-right {
+    width: 35px !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#video-iklan .iphone-bezel-right .home-button {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+/* 5. Display Layar Dalam (Berdiri & Miring) */
+#video-iklan .iphone-display {
+    background: #000;
+    overflow: hidden;
+    flex: 1;
+    position: relative;
+    border-radius: 0; 
+}
+
+#video-iklan .iphone-display-landscape {
+    background: #000;
+    overflow: hidden;
+    flex: 1;
+    height: 95% !important; /* Bezel atas-bawah dibikin super tipis natural */
+    position: relative;
+    border-radius: 8px !important; /* Ujung layar dibikin agak tumpul elegan */
+}
+
+/* 6. Anti Celah Hitam YouTube */
+#video-iklan iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    transform: scale(1.05); /* Zoom tipis biar pas menutupi layar */
+}
+
+/* 7. Slide Logic (Diatur Penuh oleh JavaScript) */
+.iklan-carousel-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Biarkan transform awal di tengah, sisanya JS yang mainkan */
+    transform: translate(-50%, -50%); 
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+}
+/* ==========================================================================
+   PERBAIKAN KAMERA & SPEAKER HP MIRING
+   ========================================================================== */
+
+/* Mengubah speaker memanjang ke atas-bawah (Vertikal) */
+#video-iklan .css-iphone-landscape .speaker-grill {
+    width: 6px !important;  /* Lebarnya ditipiskan */
+    height: 45px !important; /* Tingginya dipanjangkan */
+    background-color: #222 !important;
+    border-radius: 10px !important;
+    box-shadow: inset 0 0 3px #000 !important;
+    margin: 0 !important;
+}
+
+/* Memastikan kamera bulat sempurna */
+#video-iklan .css-iphone-landscape .camera-dot {
+    width: 10px !important; 
+    height: 10px !important;
+    background-color: #222 !important; 
+    border-radius: 50% !important;
+    box-shadow: inset 0 0 3px #000 !important;
+    margin: 0 !important;
+}
+
+/* Memastikan jarak antara kamera dan speaker pas berjejer */
+#video-iklan .css-iphone-landscape .iphone-bezel-left {
+    gap: 15px !important; 
+    justify-content: center !important;
+}
+/* ==========================================================================
+   HACK HILANGKAN UI YOUTUBE & TOMBOL MUTE KUSTOM
+   ========================================================================== */
+
+/* Matikan klik pada iframe agar UI Youtube tidak muncul/pause saat disentuh */
+#video-iklan iframe {
+    pointer-events: none !important; 
+}
+
+/* Desain Tombol Mute Kustom */
+.mute-btn-iklan {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(3px);
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto !important; /* Wajib auto biar tombolnya bisa diklik */
+}
+
+.mute-btn-iklan:hover {
+    background-color: var(--accent-yellow, #ffcc00);
+    color: #111;
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   KOTAK HARGA & TOMBOL CTA (SECTION VIDEO IKLAN)
+   ========================================================================== */
+.iklan-pricing-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    padding-bottom: 60px;
+    position: relative;
+    z-index: 5;
+    width: 100%;
+}
+
+/* Desain Kotak Harga (Diperlebar biar teks tidak sempit) */
+.iklan-pricing-box {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border: 1px solid #444;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 500px; /* Lebih lebar sedikit */
+    width: 90%;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Jarak rapi antar elemen di dalam kotak */
+}
+
+.iklan-pricing-box:hover {
+    transform: translateY(-5px); 
+    border-color: var(--accent-yellow, #ffcc00);
+}
+
+.pricing-title {
+    color: #aaa;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* List Paket Harga */
+.pricing-tier-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pricing-tier-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-yellow, #ffcc00);
+}
+
+.tier-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+.tier-name {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.tier-duration {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.tier-duration i {
+    color: var(--accent-yellow, #ffcc00);
+    margin-right: 5px;
+}
+
+/* HARGA: LEBIH BESAR & WARNA HIJAU */
+.tier-price {
+    color: #00e676; /* Warna Hijau Terang Khas Promo */
+    font-size: 1.4rem; /* Diperbesar */
+    font-weight: 900;
+    white-space: nowrap;
+    margin-left: 15px;
+    text-shadow: 0 2px 10px rgba(0, 230, 118, 0.2);
+}
+
+/* Desain Tombol WhatsApp di dalam kotak */
+.iklan-cta-btn {
+    background: linear-gradient(135deg, var(--accent-yellow, #ffcc00) 0%, #e6b800 100%);
+    color: #111;
+    padding: 15px 0;
+    width: 100%; /* Memanjang memenuhi kotak */
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.iklan-cta-btn i {
+    font-size: 1.3rem;
+}
+
+.iklan-cta-btn:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 8px 25px rgba(255, 204, 0, 0.5);
+    color: #000;
+}
+
+/* Responsif HP */
+@media (max-width: 480px) {
+    .pricing-tier-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
-    .gallery-item {
-        height: 80px;
-        font-size: 0.6rem;
+    .tier-price {
+        margin-left: 0;
+        font-size: 1.3rem;
+    }
+}
+
+/* ==========================================================================
+   KOTAK HARGA (GRID 2x2) & TOMBOL CTA
+   ========================================================================== */
+
+/* 1. Desain Kotak Harga (Diperlebar agar muat 2 kolom) */
+.iklan-pricing-box {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border: 1px solid #444;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 850px; /* KUNCI 1: Diperlebar dari 500px jadi 850px */
+    width: 95%;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; 
+}
+
+.iklan-pricing-box:hover {
+    transform: translateY(-5px); 
+    border-color: var(--accent-yellow, #ffcc00);
+}
+
+.pricing-title {
+    color: #aaa;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* 2. List Paket Harga (Sistem Grid 2x2) */
+.pricing-tier-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: grid; /* KUNCI 2: Ubah dari flex menjadi grid */
+    grid-template-columns: repeat(2, 1fr); /* KUNCI 3: Buat 2 kolom sama besar */
+    gap: 15px; /* Jarak antar kotak paket */
+}
+
+/* Kotak masing-masing paket */
+.pricing-tier-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px 15px; /* Padding sedikit diperbesar biar lega */
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-yellow, #ffcc00);
+    transition: background 0.3s ease;
+}
+
+.pricing-tier-list li:hover {
+    background: rgba(255, 255, 255, 0.1); /* Efek nyala saat di-hover */
+}
+
+.tier-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+
+.tier-name {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.tier-duration {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.tier-duration i {
+    color: var(--accent-yellow, #ffcc00);
+    margin-right: 5px;
+}
+
+/* HARGA: LEBIH BESAR & WARNA HIJAU */
+.tier-price {
+    color: #00e676; 
+    font-size: 1.4rem; 
+    font-weight: 900;
+    white-space: nowrap;
+    margin-left: 15px;
+    text-shadow: 0 2px 10px rgba(0, 230, 118, 0.2);
+}
+
+/* Responsif HP (Biar kalau dibuka di HP, balik lagi nyusun ke bawah 1 kolom) */
+@media (max-width: 768px) {
+    .pricing-tier-list {
+        grid-template-columns: 1fr; /* Balik jadi 1 kolom di layar sempit */
+    }
+    .pricing-tier-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .tier-price {
+        margin-left: 0;
+        font-size: 1.3rem;
+    }
+}
+
+/* 8. Responsif HP */
+@media (max-width: 768px) {
+    .iklan-carousel-center { height: 370px !important; }
+    #video-iklan .css-iphone-mockup.silver-edition {
+        width: 220px !important;
+        height: 440px !important;
+    }
+    #video-iklan .css-iphone-landscape.silver-edition {
+        width: 320px !important;
+        height: 170px !important;
+    }
+}
+
+/* ==========================================================================
+   12. VIDEO DOKUMENTASI - VERSI PAS (NGGAK GEPENG/PANJANG)
+   ========================================================================== */
+/* Paksa iframe YT di dalam yt-player-doc tidak bisa diklik */
+#yt-player-doc iframe {
+    pointer-events: none !important;
+}
+.video-doc-hero {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+
+/* Ukuran Mockup Jumbo yang pas */
+.jumbo-size {
+    width: 100%;
+    max-width: 700px; /* Saya turunkan sedikit biar gak kepanjangan */
+    height: auto;
+    /* KUNCI: Pakai 16/9 biar gak gepeng */
+    aspect-ratio: 16 / 9.5; 
+    position: relative;
+    display: flex;
+}
+
+/* Pastikan area layar di dalamnya juga ngikutin */
+.jumbo-size .iphone-display-landscape {
+    flex: 1;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Paksa Iframe YouTube-nya penuh tapi tetep 16:9 */
+.jumbo-size iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Container khusus Grid Video biar gak kepanjangan */
+.video-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* JADI 2 KOLOM */
+    gap: 12px;
+    width: 100%;
+}
+/* Tombol Mute Khusus Video Dokumentasi */
+.mute-btn-doc {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--accent-yellow, #ffcc00);
+    border: 1px solid var(--accent-yellow, #ffcc00);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.mute-btn-doc:hover {
+    transform: scale(1.1);
+    background: var(--accent-yellow, #ffcc00);
+    color: #000;
+}
+/* Responsif: Kalo di HP balik lagi ke 1 kolom biar gak kekecilan */
+@media (max-width: 600px) {
+    .video-grid-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .ultimate-package-box ul {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ==========================================================================
+   13. SECTION KONTAK (MARI BEKERJA SAMA)
+   ========================================================================== */
+#kontak {
+    padding: 80px 20px;
+    background-color: transparent; /* Mengikuti background utama */
+    text-align: center;
+}
+
+.kontak-konten {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.kontak-konten p {
+    color: #ccc;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Container Tombol */
+.kontak-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Biar otomatis turun di layar kecil */
+}
+
+/* Base Style Tombol Kontak */
+.kontak-buttons .btn {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 280px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.kontak-buttons .btn i {
+    font-size: 2.2rem;
+    margin-right: 15px;
+}
+
+.kontak-buttons .btn span {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.kontak-buttons .btn small {
+    display: block;
+    font-weight: 400;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* Tombol WhatsApp (Hijau) */
+.btn-wa {
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-wa:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3);
+}
+
+/* Tombol Email (Premium Dark/Yellow) */
+.btn-email {
+    background: linear-gradient(135deg, #333 0%, #111 100%);
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.btn-email:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-yellow, #ffcc00);
+    box-shadow: 0 15px 30px rgba(255, 204, 0, 0.2);
+}
+
+.btn-email i {
+    color: var(--accent-yellow, #ffcc00);
+}
+
+/* Responsif HP */
+/* Responsif HP */
+@media (max-width: 600px) {
+    #kontak {
+        padding: 60px 10px; /* Kurangi padding kiri-kanan */
+    }
+    
+    .kontak-konten p {
+        font-size: 1rem;
+    }
+
+    /* 💡 KUNCI BIAR TETAP SAMPING-SAMPINGAN */
+    .kontak-buttons {
+        flex-wrap: nowrap; /* Jangan turun ke baris baru */
+        gap: 10px; /* Jarak antar tombol didekatkan */
+    }
+
+    .kontak-buttons .btn {
+        width: 50%; /* Masing-masing ambil setengah layar */
+        min-width: unset;
+        padding: 12px 10px; /* Kurangi area dalam tombol */
+    }
+
+    .kontak-buttons .btn i {
+        font-size: 1.5rem; /* Kecilkan ikon */
+        margin-right: 8px;
+    }
+
+    .kontak-buttons .btn span {
+        font-size: 0.8rem; /* Kecilkan teks utama (WhatsApp/Email) */
+    }
+
+    .kontak-buttons .btn small {
+        font-size: 0.6rem; /* Kecilkan detail (nomor/email) */
+        /* Potong teks jika kepanjangan pakai titik-titik (...) */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+/* ==========================================================================
+   14. FOOTER
+   ========================================================================== */
+    /* Pengaturan Container Utama Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Jarak antar kotak dikurangi sedikit agar pas */
+    margin-bottom: 20px; 
+    flex-wrap: wrap; /* Tombol otomatis turun ke bawah jika layar sempit */
+}
+
+        /* Pengaturan Kotak/Background Tombol Sosial Media */
+.social-links a {
+    display: flex;
+    align-items: center; 
+    gap: 12px; /* Jarak ikon ke teks */
+    color: var(--text-light); 
+    text-decoration: none;
+            
+            /* --- KODE BARU UNTUK KOTAK BG --- */
+    background-color: #1a1a1a; /* Kotak background warna hitam pekat (gelap) */
+    padding: 12px 25px; /* Jarak teks ke tepi kotak (atas-bawah, kiri-kanan) */
+    border-radius: 50px; /* Siku-siku halus (sudut tumpul) */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Border tipis halus */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Efek bayangan kotak */
+            /* -------------------------------- */
+
+            /* Update Transisi agar halus saat di-hover */
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.social-links a i {
+    font-size: 1.6rem; /* Ukuran ikon disesuaikan */
+}
+
+.social-links a span {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+        /* Efek saat Kursor Disentuh (Hover) */
+.social-links a:hover {
+    color: var(--accent-yellow); /* Teks jadi kuning */
+    transform: translateY(-5px); /* Kotak melompat ke atas sedikit */
+    background-color: #252525; /* Background kotak jadi agak terang */
+    border-color: var(--accent-yellow); /* Border kotak ikut jadi kuning */
+}
+
+/* ==========================================================================
+   PENYESUAIAN FOOTER SOSMED AGAR TETAP 1 BARIS DI HP
+   ========================================================================== */
+@media (max-width: 768px) {
+    .social-links {
+        display: flex;
+        flex-wrap: nowrap;      /* KUNCI: Melarang ikon turun ke bawah */
+        justify-content: center; /* Tetap di tengah */
+        gap: 5px;               /* Jarak antar kotak dipersempit */
+        width: 100%;
+        overflow: hidden;        /* Biar gak ada scroll samping */
+    }
+
+    .social-links a {
+        padding: 6px 8px;       /* Padding kotak dibuat sangat ramping */
+        gap: 5px;               /* Jarak ikon ke teks diperkecil */
+        flex: 1;                /* Membagi ruang sama rata */
+        min-width: 0;           /* Izin untuk mengecil sesempit mungkin */
+        white-space: nowrap;    /* Teks dipaksa lurus, gak boleh enter */
+    }
+
+    .social-links a i {
+        font-size: 1rem;        /* Ikon dikecilkan agar muat */
+    }
+
+    .social-links a span {
+        font-size: 0.65rem;     /* Teks dikecilkan drastis agar cukup 1 baris */
+        letter-spacing: -0.2px; /* Merapatkan huruf sedikit */
     }
 }
 
