@@ -545,7 +545,7 @@ section {
 @media (max-width: 768px) {
     .portfolio-grid { gap: 8px; }
     .card-content { padding: 8px; }
-    .card-content h3 { font-size: 0.85rem; margin-bottom: 2px; }
+    .card-content h3 { font-size: 1rem; margin-bottom: 2px; }
     .card-content p.desc { font-size: 0.65rem; line-height: 1.2; }
     .card-img { font-size: 0.7rem; }
     .tentang-Sub p { font-size: 0.9rem; } /* ← tambah ini */

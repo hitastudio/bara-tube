@@ -395,7 +395,7 @@ nav ul li a:hover {
 .hero p {
     font-size: 1.3rem;
     font-weight: bold;
-    color: var(--accent-yellow);
+    color:  rgb(255, 255, 255);
     max-width: 600px;
     margin: 15px auto 1px auto; 
     text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
